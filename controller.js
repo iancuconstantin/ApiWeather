@@ -1,3 +1,4 @@
-import * as util from './util.js' 
+import * as model from './model.js' 
 
-util.getData()
+model.getData()
+model.getSuggestedCities()
