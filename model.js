@@ -1,28 +1,31 @@
+
 const weatherUrl = "http://api.weatherapi.com/v1/current.json?key="
 const WEATHER_API_KEY = "4ee01554294d4b46b1475647221909"
 
-const googleUrl = "https://maps.googleapis.com/maps/api/place/autocomplete/json?"
-const GOOGLEPLACES_API_KEY = "AIzaSyA1AEszAwG8sKSOHiBIYizVAkEJTGCfE6g"
-async function getData(){
-    const response = await fetch (`${weatherUrl}${WEATHER_API_KEY}&q=London`)
+
+async function getCityWeatherData(input){
+    const response = await fetch (`${weatherUrl}${WEATHER_API_KEY}&q=${input}`)
     const data = await response.json()
     console.log(data)
 }
 
-const input = "con"
-async function getSuggestedCities(){
-    const response = await fetch(`${googleUrl}input=${input}&key=${GOOGLEPLACES_API_KEY}`, {
-        method: "GET",
-        mode: "no-cors",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
-    console.log(response)
-    const data = await response.json()
-    //displayCities(data)
-}
+// const options = {
+// 	method: 'GET',
+// 	headers: {
+// 		'X-RapidAPI-Key': 'ed66aa3ec7mshba8466f47ef8dd4p19f548jsndb9f6a291a44',
+// 		'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
+// 	}
+// };
+
+// async function searchCities(input){
+//   const response = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=200000&namePrefix=${input}`,options)
+//   const data = await response.json()
+//   console.log(data)
+  
+// }
+
+
+
 export {
-    getData,
-    getSuggestedCities
+getCityWeatherData,
 }
