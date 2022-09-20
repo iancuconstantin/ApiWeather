@@ -81,9 +81,13 @@ export function getTempBySelection(data,tempType) {
   if (tempType.innerText.trim() === "C"){
     tempValue.innerText = data.current.temp_c + "°"
     feelsLike.innerHTML = data.current.feelslike_c + "°"
+    tempF.style.color = "gray"
+    tempC.style.color = "white"
   }else {
     tempValue.innerText = data.current.temp_f + "°"
     feelsLike.innerHTML = data.current.feelslike_f + "°"
+    tempC.style.color = "gray"
+    tempF.style.color = "white"
   }
 }
 
