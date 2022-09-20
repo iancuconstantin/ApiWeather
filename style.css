@@ -3,6 +3,7 @@
     src: url(/static/Montserrat-Medium.ttf);
 }
 
+
 *{
     margin: 0;
     padding: 0;
@@ -84,3 +85,12 @@ h1 {
 .details:first-child{
     border-right: 2px solid #fcfcfc;
 }
+
+.div_hover {
+    background-color: #FFFFFF;
+  }
+  
+.div_hover:hover {
+    background-color: #585252;
+  }
+
