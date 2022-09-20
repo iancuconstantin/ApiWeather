@@ -161,3 +161,63 @@ p {
     flex-shrink: 0;
     letter-spacing: 1px;
 }
+/* SEARCH BAR */ 
+
+body {
+    background: #29313a;
+  }
+  
+  .input-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .search-box {
+    width: 450px;
+    height: 100px;
+    position: relative;
+  }
+  
+  .input {
+    margin-top: -55%;
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    box-sizing: border-box;
+    width: 0px;
+    height: 53px;
+    padding: 0 30px;
+    outline: none;
+    font-size: 18px;
+    border-radius: 50px;
+    color: #29313a;
+    border: 3px solid #2c527e;
+    transition: all 0.8s ease;
+    box-shadow: 10px -2px 20px 2px rgb(0 0 0 / 30%);
+  }
+
+  .btn {
+    margin-top: -55%;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: #2c527e;
+    border-radius: 50%;
+    left: 50px;
+    top: 10px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 80px;
+    font-size: 20px;
+    color: #fff;
+    transition: all 0.8s ease;
+  }
+  
+  .input.active {
+    width: 280px;
+    left: 100px;
+  }
+
+/*----------------*/

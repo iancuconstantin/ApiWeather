@@ -5,6 +5,7 @@ const input = view.input;
 const temps = [view.tempC, view.tempF]
 const location = view.location
 const windIcon = view.windIcon
+const searchBtn = view.searchBtn
 
 let suggestionIndex;
 let suggestionsList = [];
@@ -95,3 +96,6 @@ windIcon.addEventListener('click', async ()=>{
 	view.convertWind(data, data.current.wind_mph)
 })
 
+searchBtn.addEventListener('click', ()=>{
+	view.toggleSearchBar()
+})
