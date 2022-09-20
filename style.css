@@ -116,3 +116,7 @@ h1 {
 #c-select:hover {
     cursor: pointer;
 }
+.div-selected {
+    background-color: #585252;
+    border-left: 5px solid rgb(0, 4, 255);
+}

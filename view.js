@@ -38,18 +38,18 @@ export function displayIcon(data, isDay){
     }
   }  
 
-// export function displaySuggestions(data) {
-//   const suggestionsList = []
-//   for (const city of data.data) {
-//     const newSuggestion = document.createElement('div');
-//     suggestionsCard.appendChild(newSuggestion);
-//     suggestionsList.push(newSuggestion);
-//     newSuggestion.textContent= city.city;
-//     newSuggestion.classList.add('div_hover');
-//     console.log(city.city);
-//   }
-//   return suggestionsList;
-// }
+export function displaySuggestions(data) {
+  const suggestionsList = []
+  for (const city of data.data) {
+    const newSuggestion = document.createElement('div');
+    suggestionsList.push(newSuggestion);
+    newSuggestion.textContent= city.city;
+    newSuggestion.classList.add('div_hover');
+    suggestionsCard.appendChild(newSuggestion);
+    console.log(city.city);
+  }
+  return suggestionsList;
+}
 
 export function deleteSuggestions() {
   suggestionsCard.innerHTML = '';
