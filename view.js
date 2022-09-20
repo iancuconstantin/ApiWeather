@@ -2,13 +2,20 @@ export const input = document.getElementById('input')
 export const tempC = document.getElementById('c-select')
 export const tempF = document.getElementById('f-select')
 export const location = document.getElementById('location')
+export const windIcon = document.getElementById('wind-icon')
 
+const weatherCard = document.getElementById('weather-card')
 const feelsLike = document.getElementById('feelslike')
 const weatherText = document.getElementById('weather-text')
 const tempValue = document.getElementById('temp-value')
 const suggestionsCard = document.querySelector('#suggestions');
 const time = document.getElementById('time')
+const humidity = document.getElementById('humid-value')
+const wind = document.getElementById('wind-value')
 
+export function initCard(){
+  weatherCard.classList.remove('hide')
+}
 
 export function displayData(data){
     const temperatureC = data.current.temp_c
@@ -16,7 +23,7 @@ export function displayData(data){
     feelsLike.innerHTML = data.current.feelslike_c + "°"
 
 
-    const timeValue = data.location.localtime.split(" ")[1]
+    const timeValue = "TODAY: " + data.location.localtime.split(" ")[1]
     time.innerHTML = `${timeValue}`
 
     const locationValue = data.location.name.toUpperCase()
@@ -24,6 +31,12 @@ export function displayData(data){
 
     const weatherTextValue = data.current.condition.text.toUpperCase()
     weatherText.innerHTML = `${weatherTextValue}`
+
+    const humidityValue = data.current.humidity
+    humidity.innerHTML = humidityValue + " %"
+
+    const windValue = data.current.wind_mph
+    wind.innerHTML = windValue + " mph"
 
     displayIcon(data, data.current.is_day)
   }
@@ -71,5 +84,14 @@ export function getTempBySelection(data,tempType) {
   }else {
     tempValue.innerText = data.current.temp_f + "°"
     feelsLike.innerHTML = data.current.feelslike_f + "°"
+  }
+}
+
+
+export function convertWind(data, windmph){
+  if(wind.innerHTML === windmph + " mph"){
+    wind.innerHTML = data.current.wind_kph + " kph"
+  } else {
+    wind.innerHTML = data.current.wind_mph + " mph"
   }
 }
