@@ -22,10 +22,10 @@ export function displaySuggestions(data) {
   const suggestionsList = []
   for (const city of data.data) {
     const newSuggestion = document.createElement('div');
-    suggestionsCard.appendChild(newSuggestion);
     suggestionsList.push(newSuggestion);
     newSuggestion.textContent= city.city;
     newSuggestion.classList.add('div_hover');
+    suggestionsCard.appendChild(newSuggestion);
     console.log(city.city);
   }
   return suggestionsList;
