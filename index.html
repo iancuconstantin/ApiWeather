@@ -12,18 +12,26 @@
         <input id= "input" type="text" placeholder=" Enter city:" class="placeholder" size= "50"/>
         <div id="suggestions"></div>
         <div class = "card">
-            <h4 id="location">Constanta</h4>
-            <h6>Partly cloudy</h6>
+            <h6 id="time"></h4>
+            <h4 id="location"></h4>
+            <h6 id ="weather-text"></h6>
             <img id = "tempLogo" src="./day/179.png" class="weather-card-icon" alt="weather-icon"/>
-            <h1 id = "temps">30<sup>&deg;</sup>C/40<sup>&deg;</sup>F</h1>
+            <div class = "temps-container">
+                <div class = "temps-selection">
+                    <h1 id = "c-select">C&nbsp;</h1>
+                    <h1>|&nbsp;</h1>
+                    <h1 id = "f-select">F</h1>
+                </div>
+                <h1 id = "temp-value">&deg;</h1>
+            </div>
+            <h6>FEELS LIKE</h6>
             <div class="container">
                 <div class="details">
-                    <p>Feels like </p>
-                    <span>32<sup>&deg;</sup>C</span>
+                    <span id = "feelslike"></span>
                 </div>
-                <div class="details">
-                    <p>Feels like </p>
-                    <span>70<sup>&deg;</sup>F</span>
+                <div class = icons>
+                    <h6>test</h6>
+                    <h6>test</h6>
                 </div>
           </div>
     <script type = "module" src = "./controller.js"></script>
