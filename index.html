@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+			integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+			crossorigin="anonymous"
+		/>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./stylebackground.css" />
     <title>Document</title>
@@ -12,7 +18,13 @@
         <div class="cloud one"></div>
         <div class="cloud two"></div>
         <div class="cloud three"></div>
-        <input id= "input" type="text" placeholder=" Enter city:" class="placeholder" size= "50"/>
+        <div class="input-wrapper">
+            <div class="search-box">
+               <input id="input"type="text" placeholder="Search city" class="input">
+               <div class="btn"  class="animate">
+                 <i class="fa fa-search" aria-hidden="true"></i>
+               </div>
+        </div>
         <div id="suggestions"></div>
         <div id = "weather-card" class = "card">
             <h6 id="time"></h4>

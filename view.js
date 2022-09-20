@@ -3,6 +3,7 @@ export const tempC = document.getElementById('c-select')
 export const tempF = document.getElementById('f-select')
 export const location = document.getElementById('location')
 export const windIcon = document.getElementById('wind-icon')
+export const searchBtn = document.querySelector('.btn')
 
 const weatherCard = document.getElementById('weather-card')
 const feelsLike = document.getElementById('feelslike')
@@ -98,4 +99,8 @@ export function convertWind(data, windmph){
   } else {
     wind.innerHTML = data.current.wind_mph + " mph"
   }
+}
+
+export function toggleSearchBar(){
+  input.classList.toggle('active')
 }
