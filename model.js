@@ -6,7 +6,7 @@ const WEATHER_API_KEY = "4ee01554294d4b46b1475647221909"
 async function getCityWeatherData(input){
     const response = await fetch (`${weatherUrl}${WEATHER_API_KEY}&q=${input}`)
     const data = await response.json()
-    console.log(data)
+    return data
 }
 
 // const options = {
