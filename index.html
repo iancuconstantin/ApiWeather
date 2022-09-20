@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
 </head>
 <body>
-    <div id="demo"clas ="container">
         <h1>Weather App</h1>
         <input id= "input" type="text" placeholder=" Enter city:" class="placeholder" size= "50"/>
-        <div id = "root">
-            
+        <div class = "weather-card">
+            <div>
+                <img id = "tempLogo" src=""/>
+                <div id = "tempC"></div>
+            </div>
+            <div id = "tempF"></div>
+            <div id = "press"></div>
         </div>
-    </div>
     <script type = "module" src = "./view.js"></script>
     <script type = "module" src = "./controller.js"></script>
 </body>
