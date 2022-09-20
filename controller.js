@@ -12,12 +12,21 @@ input.addEventListener('keypress', async (e)=> {
   suggestionIndex = -1;
   if (e.key === "Enter"){
     try {
-      view.deleteSuggestions();
-      const data = await model.getCityWeatherData(e.target.value)
-      view.displayData(data)
-      suggestionsList = [];
+		view.deleteSuggestions();
+		const imageList = await model.searchPhotos(e.target.value);
+		console.log(imageList);
+		const numberOfPages = Math.floor(imageList.total_results / 15);
+		const pageNumber = Math.floor(Math.random() * (numberOfPages + 1)) + 1;
+		const pageWithImages = await model.getPage(e.target.value, pageNumber);
+		const randomImageIndex = Math.floor(Math.random() * pageWithImages.photos.length);
+		const image = pageWithImages.photos[randomImageIndex];
+		console.log(image);
+		view.changeBackground(image);
+		const data = await model.getCityWeatherData(e.target.value);
+		view.displayData(data)
+		suggestionsList = [];
     } catch (error) {
-      console.log(error);
+      	console.log(error);
     }
   }
 })
@@ -47,29 +56,28 @@ document.addEventListener('keydown', (e) => {
   let length = suggestionsList.length;
   if (length > 0) {
     if(e.code === 'ArrowDown') {
-      suggestionIndex++;
-      if (suggestionsList[suggestionIndex - 1]) {
-        suggestionsList[suggestionIndex - 1].classList.remove('div-selected');
-      }
-      if (suggestionIndex === length) {
-        suggestionIndex = 0;
-      }
-      suggestionsList[suggestionIndex].classList.add('div-selected');
-      view.inputBarAutocomplete(suggestionsList[suggestionIndex].innerText);
-    } else if (e.code === 'ArrowUp') {
-      suggestionIndex--;
-      if (suggestionsList[suggestionIndex + 1]) {
-        suggestionsList[suggestionIndex + 1].classList.remove('div-selected');
-      }
-      if (suggestionIndex === -1 || suggestionIndex === -2) {
-        suggestionIndex = length - 1;
-      }
-      suggestionsList[suggestionIndex].classList.add('div-selected');
-      view.inputBarAutocomplete(suggestionsList[suggestionIndex].innerText);
+		suggestionIndex++;
+		if (suggestionsList[suggestionIndex - 1]) {
+			suggestionsList[suggestionIndex - 1].classList.remove('div-selected');
+		}
+		if (suggestionIndex === length) {
+			suggestionIndex = 0;
+		}
+		suggestionsList[suggestionIndex].classList.add('div-selected');
+		view.inputBarAutocomplete(suggestionsList[suggestionIndex].innerText);
+		} else if (e.code === 'ArrowUp') {
+		suggestionIndex--;
+		if (suggestionsList[suggestionIndex + 1]) {
+			suggestionsList[suggestionIndex + 1].classList.remove('div-selected');
+		}
+		if (suggestionIndex === -1 || suggestionIndex === -2) {
+			suggestionIndex = length - 1;
+		}
+		suggestionsList[suggestionIndex].classList.add('div-selected');
+		view.inputBarAutocomplete(suggestionsList[suggestionIndex].innerText);
     }
   }
 });
-
 
 //handle display of temp by selection
 temps.forEach(temp => {
@@ -78,3 +86,4 @@ temps.forEach(temp => {
         view.getTempBySelection(data, temp)
     })
 })
+
