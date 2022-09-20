@@ -7,3 +7,13 @@
     padding: 0 20px 20px 20px;  
 
 }
+
+/* theodor */
+.div_hover {
+    background-color: #FFFFFF;
+  }
+  
+.div_hover:hover {
+    background-color: #585252;
+  }
+/* theodor */
