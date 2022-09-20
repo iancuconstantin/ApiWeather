@@ -132,11 +132,11 @@ h1 {
 
 .icons-container {
     display: flex;
-    width: 175%;
-    align-content: center;
-    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-between;
+    width: 175%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-around;
 }
 
 #humid,
@@ -148,7 +148,7 @@ h1 {
 }
 
 .icons-container div img{
-    width: 30%;
+    width: 40%;
     margin-right: 10px;
     justify-content: space-around;
 }

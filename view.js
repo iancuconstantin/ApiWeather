@@ -88,10 +88,10 @@ export function getTempBySelection(data,tempType) {
 }
 
 
-export function convertWind(windmph, windkph){
-  if(wind.innerHTML = windmph){
-    wind.innerHTML = windkph + " kph"
+export function convertWind(data, windmph){
+  if(wind.innerHTML === windmph + " mph"){
+    wind.innerHTML = data.current.wind_kph + " kph"
   } else {
-    wind.innerHTML = windmph + " mph"
+    wind.innerHTML = data.current.wind_mph + " mph"
   }
 }

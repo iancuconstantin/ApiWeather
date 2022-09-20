@@ -90,7 +90,8 @@ temps.forEach(temp => {
 })
 
 windIcon.addEventListener('click', async ()=>{
+	console.log(location.innerText)
 	const data = await model.getCityWeatherData(location.innerText)
-	view.convertWind(data.current.wind_mph, data.current.wind_kph)
+	view.convertWind(data, data.current.wind_mph)
 })
 
