@@ -60,11 +60,11 @@ h6{
 h1 {
     letter-spacing: 2px;
     text-align: center;
-    font-size:50px;
+    font-size:40px;
     font-weight: 300px;
 }
 
-.container {
+.extras-container {
     width: 70%;
     margin-left: 5%;
     display: grid;
@@ -72,19 +72,25 @@ h1 {
     margin-top: 20px;
 }
 
-.details {
+.feelslike-container {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     font-size: 15px;
     letter-spacing: 1px;
     margin-top: -15px;
     font-weight: 600px;
-    
+    justify-content: space-around;
 }
 
-.details span {
+.feelslike-container span {
     color: #d9e2ed;
-    font-size: 16px;
+    font-size: 17px;
 }
+
+#feelslike {
+    margin-top: -10px;
+}   
 
 .div_hover {
     background-color: #FFFFFF;
@@ -113,10 +119,45 @@ h1 {
 }
 
 #f-select,
-#c-select:hover {
+#c-select,
+#wind-icon:hover {
     cursor: pointer;
 }
+
 .div-selected {
     background-color: #585252;
     border-left: 5px solid rgb(0, 4, 255);
+}
+
+
+.icons-container {
+    display: flex;
+    width: 175%;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#humid,
+#wind {
+    display: flex;
+    width: -moz-min-content;
+    width: min-content;
+    justify-content: center;
+}
+
+.icons-container div img{
+    width: 30%;
+    margin-right: 10px;
+    justify-content: space-around;
+}
+
+.hide {
+    display:none;
+}
+
+p {
+    flex-shrink: 0;
+    letter-spacing: 1px;
 }
