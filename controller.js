@@ -2,6 +2,9 @@ import * as model from './model.js'
 import * as view from './view.js'
 
 const input = view.input;
+const temps = [view.tempC, view.tempF]
+const location = view.location
+
 let suggestionIndex;
 let suggestionsList = [];
 
@@ -75,4 +78,12 @@ document.addEventListener('keydown', (e) => {
     }
   }
 });
+
+//handle display of temp by selection
+temps.forEach(temp => {
+    temp.addEventListener('click', async ()=> {
+        const data = await model.getCityWeatherData(location.innerText)
+        view.getTempBySelection(data, temp)
+    })
+})
 
