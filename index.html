@@ -11,14 +11,21 @@
         <h1>Weather App</h1>
         <input id= "input" type="text" placeholder=" Enter city:" class="placeholder" size= "50"/>
         <div id="suggestions"></div>
-        <div class = "weather-card">
-            <div>
-                <img id = "tempLogo" src=""/>
-                <div id = "tempC"></div>
-            </div>
-            <div id = "tempF"></div>
-            <div id = "press"></div>
-        </div>
+        <div class = "card">
+            <h4 id="location">Constanta</h4>
+            <h6>Partly cloudy</h6>
+            <img id = "tempLogo" src="./day/179.png" class="weather-card-icon" alt="weather-icon"/>
+            <h1 id = "temps">30<sup>&deg;</sup>C/40<sup>&deg;</sup>F</h1>
+            <div class="container">
+                <div class="details">
+                    <p>Feels like </p>
+                    <span>32<sup>&deg;</sup>C</span>
+                </div>
+                <div class="details">
+                    <p>Feels like </p>
+                    <span>70<sup>&deg;</sup>F</span>
+                </div>
+          </div>
     <script type = "module" src = "./controller.js"></script>
 </body>
 </html>

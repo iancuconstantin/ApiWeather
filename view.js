@@ -4,8 +4,7 @@ const suggestionsCard = document.querySelector('#suggestions');
 export function displayData(data){
     const temperatureC = data.current.temp_c
     const temperatureF = data.current.temp_f
-    document.getElementById('tempC').innerHTML = `Today: ${temperatureC}°C`
-    document.getElementById('tempF').innerHTML = `Today: ${temperatureF}°F`
+    document.getElementById('temps').innerHTML = `${temperatureC}°C / ${temperatureF}°F`
     displayIcon(data, data.current.is_day)
   }
   

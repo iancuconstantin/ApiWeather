@@ -1,14 +1,91 @@
-.weather-card {
-    width: 300px;
-    border-radius:3px;
-    color: #fff;
-    background-color: #333;
-    margin: 20px auto 0 auto;
-    padding: 0 20px 20px 20px;  
-
+@font-face {
+    font-family: Montserrat;
+    src: url(/static/Montserrat-Medium.ttf);
 }
 
-/* theodor */
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Monserrat;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: gray;
+}
+
+.card{
+ height: 380px;
+ width:320px;
+ background-color: rgb(173,216,230,0.36);
+ position: absolute;
+ margin:auto;
+ left: 0;
+ right: 0;
+ top: 0;
+ bottom: 0;
+ backdrop-filter: blur(10px);
+ border:1px solid rgba(255,255,255,0.20);
+ border-radius:10px;
+ color: #fcfcfc;
+ box-shadow: 10px -2px 20px 2px rgb(0 0 0 / 30%);
+}
+
+h4{
+    letter-spacing: 4px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    margin: 25px 0 10px 0;
+}
+
+h6{
+    text-align: center;
+    color:#b3b3b3;
+    font-size: 15px;
+    letter-spacing: 5px;
+    margin-top: 25px;
+    font-weight: 300px;
+    margin-bottom: 25px;
+}
+
+.weather-card-icon {
+    width: 20%;
+    margin-left: 40%;
+}
+
+h1 {
+    letter-spacing: 2px;
+    text-align: center;
+    font-size:50px;
+    font-weight: 300px;
+}
+
+.container {
+    width: 70%;
+    margin-left: 15%;
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-top: 30px;
+}
+
+.details {
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 600px;
+}
+
+.details span {
+    color: #b3b3b3
+}
+
+.details:first-child{
+    border-right: 2px solid #fcfcfc;
+}
+
 .div_hover {
     background-color: #FFFFFF;
   }
@@ -16,4 +93,4 @@
 .div_hover:hover {
     background-color: #585252;
   }
-/* theodor */
+
