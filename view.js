@@ -36,6 +36,10 @@ export function deleteSuggestions() {
 }
 
 export function inputBarAutocomplete(text) {
-  const inputBar = document.querySelector('#input');
-  inputBar.value = text;
+	const inputBar = document.querySelector('#input');
+	inputBar.value = text;
+}   
+
+export function changeBackground(image) {
+	document.body.style.backgroundImage = `url('${image.src.large2x}')`;
 }
