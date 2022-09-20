@@ -2,7 +2,6 @@
 const weatherUrl = "http://api.weatherapi.com/v1/current.json?key="
 const WEATHER_API_KEY = "4ee01554294d4b46b1475647221909"
 
-
 async function getCityWeatherData(input){
     try {
 	    const response = await fetch (`${weatherUrl}${WEATHER_API_KEY}&q=${input}`)
@@ -22,13 +21,15 @@ const options = {
 };
 
 async function searchCities(input){
-  const response = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=200000&namePrefix=${input}`,options)
-  const data = await response.json()
-  console.log(data)
-  return data;
+ try {
+	  const response = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=200000&namePrefix=${input}`,options)
+	  const data = await response.json()
+	  console.log(data)
+	  return data;
+  } catch (error) {
+    console.log(error);
+  }
 }
-
-
 
 export {
     getCityWeatherData,
