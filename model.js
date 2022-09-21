@@ -41,15 +41,30 @@ async function searchPhotos(input) {
 	return data;
 }
 
-// async function getPage(input, pageNumber) {
-// 	const response = await fetch(`https://api.pexels.com/v1/search/?page=${pageNumber}&per_page=&query=${input}+buildings`, photosOptions)
-// 	const data = await response.json();
-// 	return data;
-// }
+function addToLocalStorage(city) {
+	if (!localStorage.favouriteCities) {
+		localStorage.favouriteCities = '[]';
+	}
+	if (city !== '') {
+		const data = JSON.parse(localStorage.favouriteCities);
+		data.push(city);
+		const citiesSet = new Set(data);
+		localStorage.favouriteCities = JSON.stringify(Array.from(citiesSet));
+	}
+	console.log(localStorage);
+}
+
+function getFavouriteCities() {
+	return new Promise((resolve, reject) => {
+		const data = JSON.parse(localStorage.favouriteCities);
+		resolve(data);
+	})
+}
 
 export {
     getCityWeatherData,
     searchCities,
     searchPhotos,
-	//getPage,
+	addToLocalStorage,
+	getFavouriteCities,
 }
