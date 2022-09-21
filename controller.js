@@ -6,7 +6,7 @@ const temps = [view.tempC, view.tempF]
 const location = view.location
 const windIcon = view.windIcon
 const searchBtn = view.searchBtn
-
+const spinner = document.getElementById("spinner");
 let suggestionIndex;
 let suggestionsList = [];
 
@@ -21,10 +21,16 @@ input.addEventListener('keypress', async (e)=> {
 		// const pageNumber = Math.floor(Math.random() * (numberOfPages + 1)) + 1;
 		// const pageWithImages = await model.getPage(e.target.value, pageNumber);
 		// const randomImageIndex = Math.floor(Math.random() * pageWithImages.photos.length);
+
+		spinner.removeAttribute('hidden')
+		const data = await model.getCityWeatherData(e.target.value)
+		spinner.setAttribute('hidden', '')
+
 		const image = imageList.photos[0];
 		console.log(image);
 		view.changeBackground(image);
 		const data = await model.getCityWeatherData(e.target.value);
+
 		view.initCard()
 		view.displayData(data)
 		suggestionsList = [];
