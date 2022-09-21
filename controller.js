@@ -35,6 +35,7 @@ input.addEventListener('input', async (e) => {
 	view.deleteSuggestions();
 	try {
 		if (input.value === '') {
+			suggestionIndex = -1;
 			const data = await model.getFavouriteCities();
 			suggestionsList = view.displaySuggestions(data);
 			for (const element of suggestionsList) {
@@ -64,6 +65,7 @@ input.addEventListener('input', async (e) => {
 input.addEventListener('click', async (e) => {
 	try {
 		if (input.value === '') {
+			suggestionIndex = -1;
 			view.deleteSuggestions();
 			const data = await model.getFavouriteCities();
 			suggestionsList = view.displaySuggestions(data);
@@ -111,6 +113,7 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('click', (e) => {
 	if (e.target.id !== 'input') {
 		view.deleteSuggestions();
+		suggestionsList = [];
 	}
 })
 
