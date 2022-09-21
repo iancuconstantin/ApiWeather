@@ -5,6 +5,7 @@ export const location = document.getElementById('location')
 export const windIcon = document.getElementById('wind-icon')
 export const searchBtn = document.querySelector('.btn')
 export const addToFavouritesButton = document.querySelector('button');
+export const spinner = document.getElementById("spinner");
 
 const weatherCard = document.getElementById('weather-card')
 const feelsLike = document.getElementById('feelslike')
@@ -55,7 +56,7 @@ export function displayIcon(data, isDay){
 
 export function displaySuggestions(data) {
   const suggestionsList = []
-  for (const city of data) {
+  for (let city of data) {
     if(city.city) {
       city = city.city;
     }

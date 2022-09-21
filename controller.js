@@ -1,5 +1,6 @@
 import * as model from './model.js' 
 import * as view from './view.js'
+import * as util from './controllerUtils.js';
 
 const input = view.input;
 const temps = [view.tempC, view.tempF]
@@ -7,7 +8,7 @@ const location = view.location
 const windIcon = view.windIcon
 const searchBtn = view.searchBtn
 const addToFavouritesButton = view.addToFavouritesButton;
-const spinner = document.getElementById("spinner");
+const spinner = view.spinner;
 let suggestionIndex;
 let suggestionsList = [];
 
@@ -15,24 +16,19 @@ input.addEventListener('keypress', async (e)=> {
   suggestionIndex = -1;
   if (e.key === "Enter"){
     try {
-		spinner.removeAttribute('hidden')
-		view.deleteSuggestions();
-		const imageList = await model.searchPhotos(e.target.value);
-		console.log(imageList);
-		// const numberOfPages = Math.floor(imageList.total_results / 15);
-		// const pageNumber = Math.floor(Math.random() * (numberOfPages + 1)) + 1;
-		// const pageWithImages = await model.getPage(e.target.value, pageNumber);
-		// const randomImageIndex = Math.floor(Math.random() * pageWithImages.photos.length);
-
-		const data = await model.getCityWeatherData(e.target.value)
-		
-		const image = imageList.photos[0];
-		console.log(image);
-		view.changeBackground(image);
-		
-		view.initCard()
-		view.displayData(data)
-		spinner.setAttribute('hidden', '')
+		//view.deleteSuggestions();
+		// spinner.removeAttribute('hidden')
+		//const imageList = await model.searchPhotos(e.target.value);
+		const [image, weatherData] = await util.fetchInformation(e.target.value, spinner);
+		//console.log(imageList);
+		//const data = await model.getCityWeatherData(e.target.value)
+		//const image = imageList.photos[0];
+		//console.log(image);
+		// view.changeBackground(image);
+		// view.initCard()
+		// view.displayData(weatherData);
+		//spinner.setAttribute('hidden', '')
+		util.displayContent(image, weatherData);
 		suggestionsList = [];
     } catch (error) {
       	console.log(error);
@@ -50,14 +46,16 @@ input.addEventListener('input', async (e) => {
 		suggestionsList = view.displaySuggestions(data);
 		for (const element of suggestionsList) {
 			element.addEventListener('click', async (e) => {
-				const imageList = await model.searchPhotos(element.innerText);
-				const image = imageList.photos[0];
-				console.log(image);
-				view.changeBackground(image);
-			  	const data = await model.getCityWeatherData(element.innerText)
-			  	view.displayData(data);
-			  	view.deleteSuggestions();
-			  	view.inputBarAutocomplete(element.innerText);
+				view.inputBarAutocomplete(element.innerText);
+				const [image, weatherData] = await util.fetchInformation(element.innerText, spinner);
+				//const imageList = await model.searchPhotos(element.innerText);
+				//const image = imageList.photos[0];
+				//console.log(image);
+				//view.changeBackground(image);
+			  	//const data = await model.getCityWeatherData(element.innerText)
+			  	//view.displayData(data);
+			  	//view.deleteSuggestions();
+				util.displayContent(image, weatherData);
 			});
 		  }
 	} else if (e.target.value.length > 2) {
@@ -66,14 +64,16 @@ input.addEventListener('input', async (e) => {
 	    suggestionsList = view.displaySuggestions(data.data);
 	    for (const element of suggestionsList) {
 	      element.addEventListener('click', async (e) => {
-				const imageList = await model.searchPhotos(element.innerText);
-				const image = imageList.photos[0];
-				console.log(image);
-				view.changeBackground(image);
-				const data = await model.getCityWeatherData(element.innerText)
-				view.displayData(data);
-				view.deleteSuggestions();
+				// const imageList = await model.searchPhotos(element.innerText);
+				// const image = imageList.photos[0];
+				// console.log(image);
+				// view.changeBackground(image);
+				// const data = await model.getCityWeatherData(element.innerText)
+				// view.displayData(data);
+				// view.deleteSuggestions();
 				view.inputBarAutocomplete(element.innerText);
+				const [image, weatherData] = await util.fetchInformation(element.innerText, spinner);
+				util.displayContent(image, weatherData);
 	      });
 	    }
 	  } 
@@ -91,14 +91,16 @@ input.addEventListener('click', async (e) => {
 			suggestionsList = view.displaySuggestions(data);
 			for (const element of suggestionsList) {
 				element.addEventListener('click', async (e) => {
-					const imageList = await model.searchPhotos(element.innerText);
-					const image = imageList.photos[0];
-					console.log(image);
-					view.changeBackground(image);
-					const data = await model.getCityWeatherData(element.innerText)
-					view.displayData(data);
-					view.deleteSuggestions();
+					// const imageList = await model.searchPhotos(element.innerText);
+					// const image = imageList.photos[0];
+					// console.log(image);
+					// view.changeBackground(image);
+					// const data = await model.getCityWeatherData(element.innerText)
+					// view.displayData(data);
+					// view.deleteSuggestions();
 					view.inputBarAutocomplete(element.innerText);
+					const [image, weatherData] = await util.fetchInformation(element.innerText, spinner);
+					util.displayContent(image, weatherData);
 				});
 			  }
 		}
