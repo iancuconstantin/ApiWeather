@@ -17,8 +17,6 @@ function displayContent(image, weatherData) {
     view.displayData(weatherData); 
 }
 
-
-
 export {
     fetchInformation,
     displayContent,

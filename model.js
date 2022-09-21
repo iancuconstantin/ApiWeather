@@ -41,12 +41,6 @@ async function searchPhotos(input) {
 	return data;
 }
 
-// async function getPage(input, pageNumber) {
-// 	const response = await fetch(`https://api.pexels.com/v1/search/?page=${pageNumber}&per_page=&query=${input}+buildings`, photosOptions)
-// 	const data = await response.json();
-// 	return data;
-// }
-
 function addToLocalStorage(city) {
 	if (!localStorage.favouriteCities) {
 		localStorage.favouriteCities = '[]';
@@ -71,7 +65,6 @@ export {
     getCityWeatherData,
     searchCities,
     searchPhotos,
-	//getPage,
 	addToLocalStorage,
 	getFavouriteCities,
 }

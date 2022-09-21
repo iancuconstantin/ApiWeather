@@ -17,7 +17,7 @@ const humidity = document.getElementById('humid-value')
 const wind = document.getElementById('wind-value')
 
 export function initCard(){
-  weatherCard.classList.remove('hide')
+    weatherCard.classList.remove('hide')
 }
 
 export function displayData(data) {
