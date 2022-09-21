@@ -4,6 +4,7 @@ export const tempF = document.getElementById('f-select')
 export const location = document.getElementById('location')
 export const windIcon = document.getElementById('wind-icon')
 export const searchBtn = document.querySelector('.btn')
+export const addToFavouritesButton = document.querySelector('button');
 
 const weatherCard = document.getElementById('weather-card')
 const feelsLike = document.getElementById('feelslike')
@@ -18,7 +19,7 @@ export function initCard(){
   weatherCard.classList.remove('hide')
 }
 
-export function displayData(data){
+export function displayData(data) {
     const temperatureC = data.current.temp_c
     tempValue.innerHTML = `${temperatureC}°C`
     feelsLike.innerHTML = data.current.feelslike_c + "°"
@@ -40,7 +41,7 @@ export function displayData(data){
     wind.innerHTML = windValue + " mph"
 
     displayIcon(data, data.current.is_day)
-  }
+}
   
 export function displayIcon(data, isDay){
     const imgFileRegex = /\d{3}\.png/
@@ -50,20 +51,24 @@ export function displayIcon(data, isDay){
     } else {
       document.getElementById('tempLogo').src = `./day/${url}`
     }
-  }  
+}  
 
 export function displaySuggestions(data) {
   const suggestionsList = []
-  for (const city of data.data) {
+  for (const city of data) {
+    if(city.city) {
+      city = city.city;
+    }
     const newSuggestion = document.createElement('div');
     suggestionsList.push(newSuggestion);
-    newSuggestion.textContent= city.city;
+    newSuggestion.textContent= city;
     newSuggestion.classList.add('div_hover');
     suggestionsCard.appendChild(newSuggestion);
-    console.log(city.city);
+    console.log(city);
   }
   return suggestionsList;
 }
+
 
 export function deleteSuggestions() {
   suggestionsCard.innerHTML = '';
@@ -91,7 +96,6 @@ export function getTempBySelection(data,tempType) {
     tempF.style.color = "white"
   }
 }
-
 
 export function convertWind(data, windmph){
   if(wind.innerHTML === windmph + " mph"){

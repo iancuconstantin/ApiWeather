@@ -47,9 +47,31 @@ async function searchPhotos(input) {
 // 	return data;
 // }
 
+function addToLocalStorage(city) {
+	if (!localStorage.favouriteCities) {
+		localStorage.favouriteCities = '[]';
+	}
+	if (city !== '') {
+		const data = JSON.parse(localStorage.favouriteCities);
+		data.push(city);
+		const citiesSet = new Set(data);
+		localStorage.favouriteCities = JSON.stringify(Array.from(citiesSet));
+	}
+	console.log(localStorage);
+}
+
+function getFavouriteCities() {
+	return new Promise((resolve, reject) => {
+		const data = JSON.parse(localStorage.favouriteCities);
+		resolve(data);
+	})
+}
+
 export {
     getCityWeatherData,
     searchCities,
     searchPhotos,
 	//getPage,
+	addToLocalStorage,
+	getFavouriteCities,
 }
