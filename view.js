@@ -4,8 +4,11 @@ export const tempF = document.getElementById('f-select')
 export const location = document.getElementById('location')
 export const windIcon = document.getElementById('wind-icon')
 export const searchBtn = document.querySelector('.btn')
+export const moreInfo = document.getElementById('more-info')
+export const goBack = document.getElementById('go-back')
 
-const weatherCard = document.getElementById('weather-card')
+
+const weatherCard1 = document.getElementById('weather-card1')
 const feelsLike = document.getElementById('feelslike')
 const weatherText = document.getElementById('weather-text')
 const tempValue = document.getElementById('temp-value')
@@ -13,9 +16,10 @@ const suggestionsCard = document.querySelector('#suggestions');
 const time = document.getElementById('time')
 const humidity = document.getElementById('humid-value')
 const wind = document.getElementById('wind-value')
+const weatherCard2 = document.getElementById('weather-card2')
 
 export function initCard(){
-  weatherCard.classList.remove('hide')
+  weatherCard1.classList.remove('hide')
 }
 
 export function displayData(data){
@@ -103,4 +107,14 @@ export function convertWind(data, windmph){
 
 export function toggleSearchBar(){
   input.classList.toggle('active')
+}
+
+export function toggleMoreInfoCard(){
+  weatherCard1.classList.add('hide')
+  weatherCard2.classList.remove('hide')
+}
+
+export function goBackToMainCard(){
+  weatherCard1.classList.remove('hide')
+  weatherCard2.classList.add('hide')
 }

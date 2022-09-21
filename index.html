@@ -26,7 +26,7 @@
                </div>
         </div>
         <div id="suggestions"></div>
-        <div id = "weather-card" class = "card">
+        <div id = "weather-card1" class = "card1">
             <h6 id="time"></h4>
             <h4 id="location"></h4>
             <h6 id ="weather-text"></h6>
@@ -56,18 +56,70 @@
                 </div>
             </div>
             <div>
-                <a id = "more-info" href=""><strong>MORE INFO</strong></a>
+                <a id = "more-info"><strong>MORE INFO</strong></a>
             </div>
         </div>
+        <div id = "weather-card2" class = "card2">
+                <div class = "info-container">
+                    <div>
+                        <p class = "moreinfo-title"><strong>LOCAL TIME: </strong> <span id= "mororeinfo-temp-c" class="moreinfo-value">32</span></p>
+                    </div>
+    
+                    <div>
+                        <p class = "moreinfo-title"><strong>LAT&deg;/ LONG&deg;</strong> <span id= "mororeinfo-temp-f"class="moreinfo-value">30</span></p>
+                    </div>
+    
+                    <div>
+                        <p class = "moreinfo-title"><strong>CONDITION:</strong> <span id= "mororeinfo-condition" class="moreinfo-value">PARTLY CLOUD WITH CHANGE OF THUNDER</span></p>
+                    </div>
+    
+                    <div>
+                        <p class = "moreinfo-title"><strong>Wind (mph):</strong> <span id= "mororeinfo-wind-mph" class="moreinfo-value">3.8</span></p>
+                    </div>
+                    
+                    <div>
+                        <p class = "moreinfo-title"><strong>Wind (kph): </strong><span id= "mororeinfo-wind-kph"class="moreinfo-value"> 6.1</span></p>
+                    </div>
+                    
+                    <div>
+                        <p class = "moreinfo-title"><strong>Pressure (mb): </strong> <span id= "mororeinfo-pressure"class="moreinfo-value">1025.0</span></p>
+                    </div>
+                    <div>
+                        <p class = "moreinfo-title"><strong>Wind Dir.: </strong> <span id= "mororeinfo-wind-dir"class="moreinfo-value">WSW</span></p>
+                    </div>
+                    <div>
+                        <p class = "moreinfo-title"><strong>Humidity: </strong> <span id= "mororeinfo-humidity"class="moreinfo-value">87</span></p>
+                    </div>
+                    <div>
+                        <p class = "moreinfo-title"><strong>Feelslike C&deg;: </strong> <span id= "mororeinfo-feelslike-c"class="moreinfo-value">13</span></p>
+                    </div>
+                    <div>
+                        <p class = "moreinfo-title"><strong>Feelslike F&deg;: </strong> <span id= "mororeinfo-feelslike-f"class="moreinfo-value">87.5</span></p>
+                    </div>
+                    <div>
+                        <p class = "moreinfo-title"><strong>Vis(km): </strong> <span id= "mororeinfo-vis"class="moreinfo-value">10.0</span></p>
+                    </div>
+                    <div>
+                        <p class = "moreinfo-title"><strong>UV: </strong><span id= "mororeinfo-gust-mph"class="moreinfo-value">3</span></p>
+                    </div>  
+                    <div>
+                        <p class = "moreinfo-title"><strong>Gust (mph): </strong><span id= "mororeinfo-gust-kph"class="moreinfo-value">4.9</span></p>
+                    </div> 
+                    <div>
+                        <p class = "moreinfo-title"><strong>Gust (kph): </strong><span id= "mororeinfo-temp-c"class="moreinfo-value">7.9</span></p>
+                    </div> 
+                    <a id = "go-back"><strong>GO BACK</strong></a>
+                </div>
+        </div>
+
     <script type = "module" src = "./controller.js"></script>
 </body>
 </html>
 
 <!---
-<div>
+        <div>
             <div id = "weather-card" class = "card">
                 <div class = "info-container">
-
                     <div>
                         <p>Temperature C&deg;: <span>32</span></p>
                     </div>
