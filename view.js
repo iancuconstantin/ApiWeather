@@ -17,33 +17,89 @@ const suggestionsCard = document.querySelector('#suggestions');
 const time = document.getElementById('time')
 const humidity = document.getElementById('humid-value')
 const wind = document.getElementById('wind-value')
+
+/*MORE INFO CARD*/
 const weatherCard2 = document.getElementById('weather-card2')
+const moreInfoLT = document.getElementById('moreinfo-lt')
+const latlong = document.getElementById('moreinfo-latlong')
+const condition = document.getElementById('moreinfo-condition')
+const windMPH = document.getElementById('moreinfo-wind-mph')
+const windKPH = document.getElementById('moreinfo-wind-kph')
+const pressure = document.getElementById('moreinfo-pressure')
+const windDir = document.getElementById('moreinfo-wind-dir')
+const card2humidity = document.getElementById('moreinfo-humidity')
+const card2feelslikeC = document.getElementById('moreinfo-feelslike-c')
+const card2feelslikeF = document.getElementById('moreinfo-feelslike-f')
+const visibility = document.getElementById('moreinfo-vis')
+const uv = document.getElementById('moreinfo-uv')
+const gustMPH = document.getElementById('moreinfo-gust-mph')
+const gustKPH = document.getElementById('moreinfo-gust-kph')
+
 
 export function initCard(){
   weatherCard1.classList.remove('hide')
 }
 
 export function displayData(data) {
+
+    /* MAIN CARD */
     const temperatureC = data.current.temp_c
     tempValue.innerHTML = `${temperatureC}°C`
     feelsLike.innerHTML = data.current.feelslike_c + "°"
 
-    const timeValue = "TODAY: " + data.location.localtime.split(" ")[1]
+    const timeValue = "TODAY: " + new Date().getHours() + ":" + new Date().getMinutes()
     time.innerHTML = `${timeValue}`
 
     const locationValue = data.location.name.toUpperCase()
     location.innerHTML = locationValue
-
+    
     const weatherTextValue = data.current.condition.text.toUpperCase()
     weatherText.innerHTML = `${weatherTextValue}`
-
+    
     const humidityValue = data.current.humidity
     humidity.innerHTML = humidityValue + " %"
-
+    
     const windValue = data.current.wind_mph
     wind.innerHTML = windValue + " mph"
-
+    
     displayIcon(data, data.current.is_day)
+
+    /* MORE INFO CARD */
+    const localtimeValue = data.location.localtime.split(" ")[1]
+    moreInfoLT.innerHTML = localtimeValue 
+
+    const latlongValue = `${data.location.lat} / ${data.location.lon}` 
+    latlong.innerHTML = latlongValue
+
+    const conditionText = data.current.condition.text
+    condition.innerHTML = conditionText.toUpperCase()
+
+    windMPH.innerHTML = windValue
+    const windKPHvalue = data.current.wind_kph
+    windKPH.innerHTML = windKPHvalue
+
+    const pressureValue = data.current.pressure_mb
+    pressure.innerHTML = pressureValue
+
+    const windDirValue = data.current.wind_dir
+    windDir.innerHTML = `${windDirValue} (${data.current.wind_degree})`
+
+    card2humidity.innerHTML = humidityValue
+
+    card2feelslikeC.innerHTML = temperatureC + "°";
+    card2feelslikeF.innerHTML = data.current.feelslike_c + "°";
+
+    const visibilityValue = data.current.vis_km
+    visibility.innerHTML = visibilityValue
+
+    const uvValue = data.current.uv
+    uv.innerHTML = uvValue
+
+    const gustMPHValue = data.current.gust_mph
+    gustMPH.innerHTML = gustMPHValue
+
+    const gustKPHValue = data.current.gust_kph
+    gustKPH.innerHTML = gustKPHValue
 }
   
 export function displayIcon(data, isDay){
