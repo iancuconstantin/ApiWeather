@@ -6,6 +6,9 @@ export const windIcon = document.getElementById('wind-icon')
 export const searchBtn = document.querySelector('.btn')
 export const moreInfo = document.getElementById('more-info')
 export const goBack = document.getElementById('go-back')
+export const addToFavouritesButton = document.querySelector('button');
+export const spinner = document.getElementById("spinner");
+
 
 
 const weatherCard1 = document.getElementById('weather-card1')
@@ -22,7 +25,7 @@ export function initCard(){
   weatherCard1.classList.remove('hide')
 }
 
-export function displayData(data){
+export function displayData(data) {
     const temperatureC = data.current.temp_c
     tempValue.innerHTML = `${temperatureC}°C`
     feelsLike.innerHTML = data.current.feelslike_c + "°"
@@ -44,7 +47,7 @@ export function displayData(data){
     wind.innerHTML = windValue + " mph"
 
     displayIcon(data, data.current.is_day)
-  }
+}
   
 export function displayIcon(data, isDay){
     const imgFileRegex = /\d{3}\.png/
@@ -54,20 +57,24 @@ export function displayIcon(data, isDay){
     } else {
       document.getElementById('tempLogo').src = `./day/${url}`
     }
-  }  
+}  
 
 export function displaySuggestions(data) {
   const suggestionsList = []
-  for (const city of data.data) {
+  for (let city of data) {
+    if(city.city) {
+      city = city.city;
+    }
     const newSuggestion = document.createElement('div');
     suggestionsList.push(newSuggestion);
-    newSuggestion.textContent= city.city;
+    newSuggestion.textContent= city;
     newSuggestion.classList.add('div_hover');
     suggestionsCard.appendChild(newSuggestion);
-    console.log(city.city);
+    console.log(city);
   }
   return suggestionsList;
 }
+
 
 export function deleteSuggestions() {
   suggestionsCard.innerHTML = '';
@@ -75,7 +82,7 @@ export function deleteSuggestions() {
 
 export function changeBackground(image) {
 	document.body.style.backgroundImage = `url('${image.src.large2x}')`;
- }
+}
 
 export function inputBarAutocomplete(text) {
   const inputBar = document.querySelector('#input');
@@ -95,7 +102,6 @@ export function getTempBySelection(data,tempType) {
     tempF.style.color = "white"
   }
 }
-
 
 export function convertWind(data, windmph){
   if(wind.innerHTML === windmph + " mph"){

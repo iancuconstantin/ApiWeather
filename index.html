@@ -37,27 +37,41 @@
                     <h1>|&nbsp;</h1>
                     <h1 id = "f-select">F</h1>
                 </div>
-                <h1 id = "temp-value">&deg;</h1>
             </div>
-            <div class=" extras-container">
+            <div id="suggestions"></div>
+            <div id = "weather-card" class = "card">
+                <div hidden id="spinner"></div>
+                <h6 id="time"></h4>
+                <h4 id="location"></h4>
+                <h6 id ="weather-text"></h6>
+                <img id = "tempLogo" src="./day/179.png" class="weather-card-icon" alt="weather-icon"/>
+                <div class = "temps-container" >
+                    <div class = "temps-selection">
+                        <h1 id = "c-select">C&nbsp;</h1>
+                        <h1>|&nbsp;</h1>
+                        <h1 id = "f-select">F</h1>
+                    </div>
+                    <h1 id = "temp-value">&deg;</h1>
+                </div>
+                <div class=" extras-container">
                 <div class="feelslike-container">
                     <h6>FEELS LIKE</h6>
                     <span id = "feelslike"><strong></strong></span>
                 </div>
                 <div class = "icons-container">
-                    <div id = "humid">
-                        <img src ="./icons/droplet-solid.svg"/>
-                        <p id = "humid-value"><strong></strong></h6>
-                    </div>
-                    <div id = "wind">
-                        <img id = "wind-icon" src ="./icons/wind-solid.svg"/>
-                        <p id ="wind-value"><strong></strong></h6>
-                    </div>
-                </div>
+                <div id = "humid">
+                <img src ="./icons/droplet-solid.svg"/>
+                <p id = "humid-value"><strong></strong></h6>
             </div>
+            <div id = "wind">
+                <img id = "wind-icon" src ="./icons/wind-solid.svg"/>
+                <p id ="wind-value"><strong></strong></h6>
+            </div>
+
             <div>
                 <a id = "more-info"><strong>MORE INFO</strong></a>
             </div>
+            <button type="button">Add to favourites</button>
         </div>
         <div id = "weather-card2" class = "card2">
                 <div class = "info-container">
