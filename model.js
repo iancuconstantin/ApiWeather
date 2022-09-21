@@ -36,20 +36,20 @@ const photosOptions = {
 }
 
 async function searchPhotos(input) {
-	const response = await fetch(`https://api.pexels.com/v1/search?query=${input}+buildings`, photosOptions)
+	const response = await fetch(`https://api.pexels.com/v1/search?query=${input}`, photosOptions)
 	const data = await response.json();
 	return data;
 }
 
-async function getPage(input, pageNumber) {
-	const response = await fetch(`https://api.pexels.com/v1/search/?page=${pageNumber}&per_page=&query=${input}+buildings`, photosOptions)
-	const data = await response.json();
-	return data;
-}
+// async function getPage(input, pageNumber) {
+// 	const response = await fetch(`https://api.pexels.com/v1/search/?page=${pageNumber}&per_page=&query=${input}+buildings`, photosOptions)
+// 	const data = await response.json();
+// 	return data;
+// }
 
 export {
     getCityWeatherData,
     searchCities,
     searchPhotos,
-	getPage,
+	//getPage,
 }
