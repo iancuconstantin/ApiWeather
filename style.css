@@ -3,6 +3,10 @@
     src: url(/static/Montserrat-ExtraLight.ttf);
 }
 
+@font-face {
+    font-family: MontserratBold;
+    src: url(/static/Montserrat-ExtraBold.ttf);
+}
 
 *{
     margin: 0;
@@ -70,6 +74,7 @@ h1 {
     display: grid;
     grid-template-columns: auto auto;
     margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .feelslike-container {
@@ -161,6 +166,16 @@ p {
     flex-shrink: 0;
     letter-spacing: 1px;
 }
+
+#more-info {
+    font-size: 10px;
+    font-family: MontserratBold;
+    color: rgb(4, 4, 98);
+    text-decoration: none;
+    text-align: center;
+    padding: 0 40%;
+}
+
 /* SEARCH BAR */ 
 
 body {
