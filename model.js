@@ -1,14 +1,11 @@
-
 const weatherUrl = "http://api.weatherapi.com/v1/current.json?key="
 const WEATHER_API_KEY = "4ee01554294d4b46b1475647221909"
 
 async function getCityWeatherData(input){
     
-	    const response = await fetch (`${weatherUrl}${WEATHER_API_KEY}&q=${input}`)
-	    const data = await response.json()
-		return data;
-	    
-   
+	const response = await fetch (`${weatherUrl}${WEATHER_API_KEY}&q=${input}`)
+	const data = await response.json()
+	return data;
 }
 
 const citiesOptions = {
@@ -23,9 +20,7 @@ async function searchCities(input){
  
 	const response = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=200000&namePrefix=${input}`,citiesOptions)
   	const data = await response.json()
-  	console.log(data)
   	return data;
- 
 }
 
 const photosOptions = {
@@ -51,7 +46,6 @@ function addToLocalStorage(city) {
 		const citiesSet = new Set(data);
 		localStorage.favouriteCities = JSON.stringify(Array.from(citiesSet));
 	}
-	console.log(localStorage);
 }
 
 function getFavouriteCities() {

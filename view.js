@@ -9,8 +9,6 @@ export const goBack = document.getElementById('go-back')
 export const addToFavouritesButton = document.querySelector('button');
 export const spinner = document.getElementById("spinner");
 
-
-
 const weatherCard1 = document.getElementById('weather-card1')
 const feelsLike = document.getElementById('feelslike')
 const weatherText = document.getElementById('weather-text')
@@ -29,7 +27,6 @@ export function displayData(data) {
     const temperatureC = data.current.temp_c
     tempValue.innerHTML = `${temperatureC}°C`
     feelsLike.innerHTML = data.current.feelslike_c + "°"
-
 
     const timeValue = "TODAY: " + data.location.localtime.split(" ")[1]
     time.innerHTML = `${timeValue}`
@@ -70,11 +67,9 @@ export function displaySuggestions(data) {
     newSuggestion.textContent= city;
     newSuggestion.classList.add('div_hover');
     suggestionsCard.appendChild(newSuggestion);
-    console.log(city);
   }
   return suggestionsList;
 }
-
 
 export function deleteSuggestions() {
   suggestionsCard.innerHTML = '';

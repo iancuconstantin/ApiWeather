@@ -36,7 +36,6 @@ input.addEventListener('input', async (e) => {
 	try {
 		if (input.value === '') {
 			const data = await model.getFavouriteCities();
-			console.log('aaaaaaaaaaa',data);
 			suggestionsList = view.displaySuggestions(data);
 			for (const element of suggestionsList) {
 				element.addEventListener('click', async (e) => {
@@ -47,7 +46,6 @@ input.addEventListener('input', async (e) => {
 			}
 		} else if (e.target.value.length > 2) {
 			const data = await model.searchCities(e.target.value);
-			console.log(e.target.value);
 			suggestionsList = view.displaySuggestions(data.data);
 			for (const element of suggestionsList) {
 				element.addEventListener('click', async (e) => {
@@ -59,6 +57,7 @@ input.addEventListener('input', async (e) => {
 	  	} 
   	} catch (error) {
 	  	console.log(error)
+		spinner.setAttribute('hidden', '')
   }
 })
 
@@ -78,6 +77,7 @@ input.addEventListener('click', async (e) => {
 		}
 	} catch (error) {
 		console.log(error);
+		spinner.setAttribute('hidden', '')
 	}
 })
 
@@ -123,7 +123,6 @@ temps.forEach(temp => {
 })
 
 windIcon.addEventListener('click', async ()=>{
-	console.log(location.innerText);
 	const data = await model.getCityWeatherData(location.innerText);
 	view.convertWind(data, data.current.wind_mph);
 })
@@ -143,4 +142,3 @@ goBack.addEventListener('click', ()=>{
 addToFavouritesButton.addEventListener('click', () => {
 	model.addToLocalStorage(input.value);
 })
-
