@@ -71,7 +71,7 @@ export function deleteSuggestions() {
 
 export function changeBackground(image) {
 	document.body.style.backgroundImage = `url('${image.src.large2x}')`;
- }
+}
 
 export function inputBarAutocomplete(text) {
   const inputBar = document.querySelector('#input');
