@@ -20,22 +20,64 @@ body {
     background-color: gray;
 }
 
-.card{
- height: 380px;
- width:320px;
- background-color: rgba(154, 219, 243, 0.36);
- position: absolute;
- margin:auto;
- left: 0;
- right: 0;
- top: 0;
- bottom: 0;
- backdrop-filter: blur(10px);
- border: 1px solid rgba(255,255,255,0.20);
- border-radius:10px;
- color: #fcfcfc;
- box-shadow: 10px -2px 20px 2px rgb(0 0 0 / 30%);
+.card1{
+    height: 380px;
+    width:320px;
+    background-color: rgba(154, 219, 243, 0.36);
+    position: absolute;
+    margin:auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.20);
+    border-radius:10px;
+    color: #fcfcfc;
+    box-shadow: 10px -2px 20px 2px rgb(0 0 0 / 30%);
 }
+
+.card2{
+    height: 380px;
+    width:320px;
+    background-color: rgba(102, 182, 113, 0.46);
+    position: absolute;
+    margin:auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.20);
+    border-radius:10px;
+    color: #fcfcfc;
+    box-shadow: 10px -2px 20px 2px rgb(0 0 0 / 30%);
+   }
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.moreinfo-title {
+    color: black;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 0 20px;
+    letter-spacing: 4px;
+    line-height: 23px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.469);
+    border-radius: 10%;
+}
+
+.moreinfo-value {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
 
 h4{
     letter-spacing: 4px;
@@ -167,13 +209,15 @@ p {
     letter-spacing: 1px;
 }
 
-#more-info {
-    font-size: 10px;
+#more-info,
+#go-back {
+    font-size: 11px;
     font-family: MontserratBold;
     color: rgb(4, 4, 98);
     text-decoration: none;
     text-align: center;
-    padding: 0 40%;
+    padding: 0 38%;
+    cursor:pointer
 }
 
 /* SEARCH BAR */ 

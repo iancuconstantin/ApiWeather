@@ -7,8 +7,11 @@ const temps = [view.tempC, view.tempF]
 const location = view.location
 const windIcon = view.windIcon
 const searchBtn = view.searchBtn
+const moreInfo = view.moreInfo
+const goBack = view.goBack
 const addToFavouritesButton = view.addToFavouritesButton;
 const spinner = view.spinner;
+
 let suggestionIndex;
 let suggestionsList = [];
 
@@ -16,6 +19,8 @@ input.addEventListener('keypress', async (e)=> {
   suggestionIndex = -1;
   if (e.key === "Enter"){
     try {
+		view.initCard()
+		view.goBackToMainCard()
 		const [image, weatherData] = await util.fetchInformation(e.target.value, spinner);
 		util.displayContent(image, weatherData);
 		suggestionsList = [];
@@ -112,21 +117,30 @@ document.addEventListener('click', (e) => {
 //handle display of temp by selection
 temps.forEach(temp => {
     temp.addEventListener('click', async ()=> {
-        const data = await model.getCityWeatherData(location.innerText)
-        view.getTempBySelection(data, temp)
+        const data = await model.getCityWeatherData(location.innerText);
+        view.getTempBySelection(data, temp);
     })
 })
 
 windIcon.addEventListener('click', async ()=>{
-	console.log(location.innerText)
-	const data = await model.getCityWeatherData(location.innerText)
-	view.convertWind(data, data.current.wind_mph)
+	console.log(location.innerText);
+	const data = await model.getCityWeatherData(location.innerText);
+	view.convertWind(data, data.current.wind_mph);
 })
 
 searchBtn.addEventListener('click', ()=>{
-	view.toggleSearchBar()
+	view.toggleSearchBar();
+})
+
+moreInfo.addEventListener('click', ()=>{
+	view.toggleMoreInfoCard();
+})
+
+goBack.addEventListener('click', ()=>{
+	view.goBackToMainCard();
 })
 
 addToFavouritesButton.addEventListener('click', () => {
 	model.addToLocalStorage(input.value);
 })
+
