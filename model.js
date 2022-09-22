@@ -49,7 +49,8 @@ function addToLocalStorage(city) {
 }
 
 function getFavouriteCities() {
-	if(localStorage.favouriteCities){
+
+	if (localStorage.favouriteCities) {
 		return new Promise((resolve, reject) => {
 			const data = JSON.parse(localStorage.favouriteCities);
 			resolve(data);
