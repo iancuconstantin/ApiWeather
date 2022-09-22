@@ -47,7 +47,6 @@ input.addEventListener('input', async (e) => {
 					view.inputBarAutocomplete(element.innerText);
 					const [/*image,*/weatherData] = await util.fetchInformation(element.innerText, spinner);
 					util.displayContent(/*image,*/ weatherData);
-					view.initCard()
 				});
 			}
 		} else if (e.target.value.length > 2) {
@@ -58,7 +57,6 @@ input.addEventListener('input', async (e) => {
 					view.inputBarAutocomplete(element.innerText);
 					const [/*image,*/ weatherData] = await util.fetchInformation(element.innerText, spinner);
 					util.displayContent(/*image,*/ weatherData);
-					view.initCard()
 				});
 			}
 	  	} 
@@ -80,7 +78,6 @@ input.addEventListener('click', async (e) => {
 					view.inputBarAutocomplete(element.innerText);
 					const [/*image,*/ weatherData] = await util.fetchInformation(element.innerText, spinner);
 					util.displayContent(/*image,*/ weatherData);
-					view.initCard()
 				});
 			}
 		}
