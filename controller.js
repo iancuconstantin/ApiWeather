@@ -23,9 +23,12 @@ input.addEventListener('keypress', async (e)=> {
 		view.goBackToMainCard()
 		const [image, weatherData] = await util.fetchInformation(e.target.value, spinner);
 		util.displayContent(image, weatherData);
+		input.value = "";
 		suggestionsList = [];
     } catch (error) {
-      	console.log(error);
+		input.value = "";
+		console.log(error);
+		alert("Cit");
 		spinner.setAttribute('hidden', '')
     }
   }
@@ -144,6 +147,6 @@ goBack.addEventListener('click', ()=>{
 
 addToFavouritesButton.addEventListener('click', () => {
 	view.changeHeartColor()
-	model.addToLocalStorage(input.value);
+	model.addToLocalStorage(location.innerText);
 	!addToFavouritesButton.classList.contains('my-fav-onclick') ? model.deleteFavouriteCity(location.innerText) : true;
 })
