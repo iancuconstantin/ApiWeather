@@ -42,7 +42,7 @@ function addToLocalStorage(city) {
 	}
 	if (city !== '') {
 		const data = JSON.parse(localStorage.favouriteCities);
-		data.push(city);
+		data.push(city.toUpperCase());
 		const citiesSet = new Set(data);
 		localStorage.favouriteCities = JSON.stringify(Array.from(citiesSet));
 	}
@@ -55,7 +55,14 @@ function getFavouriteCities() {
 	})
 }
 
+function deleteFavouriteCity(city) {
+    const data = JSON.parse(localStorage.favouriteCities);
+    data.splice(data.indexOf(city), 1);
+    localStorage.favouriteCities = JSON.stringify(data);
+}
+
 export {
+	deleteFavouriteCity,
     getCityWeatherData,
     searchCities,
     searchPhotos,

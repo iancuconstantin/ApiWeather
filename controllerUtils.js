@@ -15,6 +15,13 @@ function displayContent(image, weatherData) {
     view.changeBackground(image);
     view.initCard()
     view.displayData(weatherData); 
+    isCityFavourite(weatherData.location.name)
+}
+
+
+async function isCityFavourite(searchedCity){
+	const favs = await model.getFavouriteCities()
+	favs.includes(searchedCity.toUpperCase()) ?  view.addToFavouritesButton.classList.add('my-fav-onclick') : true;
 }
 
 export {

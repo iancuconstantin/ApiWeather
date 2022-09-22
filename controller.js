@@ -145,4 +145,5 @@ goBack.addEventListener('click', ()=>{
 addToFavouritesButton.addEventListener('click', () => {
 	view.changeHeartColor()
 	model.addToLocalStorage(input.value);
+	!addToFavouritesButton.classList.contains('my-fav-onclick') ? model.deleteFavouriteCity(location.innerText) : true;
 })

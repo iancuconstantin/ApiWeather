@@ -38,6 +38,7 @@ const gustKPH = document.getElementById('moreinfo-gust-kph')
 
 export function initCard(){
   weatherCard1.classList.remove('hide')
+  addToFavouritesButton.classList.remove('my-fav-onclick')
 }
 
 export function displayData(data) {
