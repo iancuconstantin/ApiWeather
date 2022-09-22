@@ -41,6 +41,10 @@ export function initCard(){
   addToFavouritesButton.classList.remove('my-fav-onclick')
 }
 
+export function disableCard(){
+  weatherCard1.classList.add('hide')
+}
+
 export function displayData(data) {
 
     /* MAIN CARD */

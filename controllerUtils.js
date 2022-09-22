@@ -13,7 +13,6 @@ async function fetchInformation(inputLocation, spinner) {
 function displayContent(/*image,*/ weatherData) {
     view.deleteSuggestions();
     //view.changeBackground(image);
-    view.initCard()
     view.displayData(/*image,*/weatherData); 
     isCityFavourite(weatherData.location.name)
 }

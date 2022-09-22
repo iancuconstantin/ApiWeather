@@ -361,7 +361,7 @@ body {
 }
 #suggestions{
     position: absolute;
-    top: -27.5vh;
+    top: -22.5vh;
     left: 25.5%;
     width: 55%;
     z-index: 10;
