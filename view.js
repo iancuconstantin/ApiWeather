@@ -6,7 +6,7 @@ export const windIcon = document.getElementById('wind-icon')
 export const searchBtn = document.querySelector('.btn')
 export const moreInfo = document.getElementById('more-info')
 export const goBack = document.getElementById('go-back')
-export const addToFavouritesButton = document.querySelector('button');
+export const addToFavouritesButton = document.getElementById('my-fav');
 export const spinner = document.getElementById("spinner");
 
 const weatherCard1 = document.getElementById('weather-card1')
@@ -174,4 +174,8 @@ export function toggleMoreInfoCard(){
 export function goBackToMainCard(){
   weatherCard1.classList.remove('hide')
   weatherCard2.classList.add('hide')
+}
+
+export function changeHeartColor(){
+  addToFavouritesButton.classList.contains('my-fav-onclick') ? addToFavouritesButton.classList.remove('my-fav-onclick') : addToFavouritesButton.classList.add('my-fav-onclick')
 }

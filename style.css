@@ -8,14 +8,14 @@
     src: url(/static/Montserrat-ExtraBold.ttf);
 }
 
-*:not(button){
+*{
     margin: 0;
     padding: 0;
     font-family: Montserrat;
     box-sizing: border-box;
 }
 
-body:not(button) {
+body{
     height: 100vh;
     background-color: gray;
 }
@@ -221,18 +221,18 @@ p {
 }
 #my-fav{
     margin-left: -12%;
-    width: 5%;
-    background: #bc0b0b00;
-    fill:red;
+    width: 5%;  
 }
 
-#my-fav:hover{
-    background:pink;
-    transition-duration: 0.5s;
-}
 
 #my-fav:hover{
     cursor: pointer;
+    filter: invert();
+    background-color: transparent !important;
+}
+
+.my-fav-onclick{
+    filter: invert() brightness(0.5) sepia(1) hue-rotate(-40deg) saturate(5);
 }
 
 /* SEARCH BAR */ 

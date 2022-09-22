@@ -143,5 +143,6 @@ goBack.addEventListener('click', ()=>{
 })
 
 addToFavouritesButton.addEventListener('click', () => {
+	view.changeHeartColor()
 	model.addToLocalStorage(input.value);
 })
