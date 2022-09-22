@@ -18,6 +18,8 @@ const time = document.getElementById('time')
 const humidity = document.getElementById('humid-value')
 const wind = document.getElementById('wind-value')
 
+const error = document.querySelector('.error-msg')
+console.log(error)
 /*MORE INFO CARD*/
 const weatherCard2 = document.getElementById('weather-card2')
 const moreInfoLT = document.getElementById('moreinfo-lt')
@@ -37,6 +39,7 @@ const gustKPH = document.getElementById('moreinfo-gust-kph')
 
 
 export function initCard(){
+  error.classList.add('hide')
   weatherCard1.classList.remove('hide')
   addToFavouritesButton.classList.remove('my-fav-onclick')
 }
@@ -187,4 +190,8 @@ export function goBackToMainCard(){
 
 export function changeHeartColor(){
   addToFavouritesButton.classList.contains('my-fav-onclick') ? addToFavouritesButton.classList.remove('my-fav-onclick') : addToFavouritesButton.classList.add('my-fav-onclick')
+}
+
+export function displayErrorMessage(){
+  error.classList.remove('hide')
 }

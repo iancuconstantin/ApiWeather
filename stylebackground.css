@@ -41,6 +41,7 @@ body {
     height: 150%;
     background: white;
     border-radius: 50%;
+    z-index: -1;
   }
   
   .cloud::after {
@@ -52,6 +53,7 @@ body {
     height: 100%;
     background: white;
     border-radius: 50%;
+    z-index: -1;
   }
   
   @keyframes zoomies {

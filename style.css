@@ -235,6 +235,18 @@ p {
     filter: invert() brightness(0.5) sepia(1) hue-rotate(-40deg) saturate(5);
 }
 
+/*ERROR MESSAGE*/
+.error-msg {
+    text-align: center;
+    position: absolute;
+    margin-left: 18%;
+    margin-top: 5%;
+    color: rgba(220, 20, 60, 0.534);
+    font-size: 20px;
+    font-weight: 600;
+    font-family: MontserratBold;
+}
+
 /* SEARCH BAR */ 
 
 body {
