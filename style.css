@@ -326,3 +326,17 @@ body {
     justify-content: center;
     align-items: center;
   }
+
+/*---- SUGGESTIONS ----*/
+.div_hover {
+    background-color: #FFFFFF;
+  }
+
+.div_hover:hover {
+    background-color: #585252;
+  }
+
+  .div-selected {
+    background-color: #585252;
+    border-left: 5px solid rgb(0, 4, 255);
+}
