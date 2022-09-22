@@ -19,15 +19,16 @@ input.addEventListener('keypress', async (e)=> {
   suggestionIndex = -1;
   if (e.key === "Enter" && input.value !== ''){
     try {
-		view.initCard()
-		view.goBackToMainCard()
 		const [/*image,*/ weatherData] = await util.fetchInformation(e.target.value, spinner);
-		util.displayContent(/*image,*/ weatherData);
+        if (weatherData.error && weatherData.error.code === 1006) {
+            throw 'Location not found';
+        }
+		util.displayContent(/*image,*/weatherData);
 		input.value = "";
 		suggestionsList = [];
     } catch (error) {
-		input.value = "";
 		console.log(error);
+		input.value = "";
 		spinner.setAttribute('hidden', '')
 		view.disableCard()
 		view.displayErrorMessage();
@@ -44,7 +45,6 @@ input.addEventListener('input', async (e) => {
 			suggestionsList = view.displaySuggestions(data,true);
 			for (const element of suggestionsList) {
 				element.addEventListener('click', async (e) => {
-					view.inputBarAutocomplete(element.innerText);
 					const [/*image,*/weatherData] = await util.fetchInformation(element.innerText, spinner);
 					util.displayContent(/*image,*/ weatherData);
 				});
@@ -55,7 +55,6 @@ input.addEventListener('input', async (e) => {
 				suggestionsList = view.displaySuggestions(data.data);
 				for (const element of suggestionsList) {
 					element.addEventListener('click', async (e) => {
-						view.inputBarAutocomplete(element.innerText);
 						const [/*image,*/ weatherData] = await util.fetchInformation(element.innerText, spinner);
 						util.displayContent(/*image,*/ weatherData);
 					});
@@ -77,7 +76,6 @@ input.addEventListener('click', async (e) => {
 			suggestionsList = view.displaySuggestions(data, true);
 			for (const element of suggestionsList) {
 				element.addEventListener('click', async (e) => {
-					view.inputBarAutocomplete(element.innerText);
 					const [/*image,*/ weatherData] = await util.fetchInformation(element.innerText, spinner);
 					util.displayContent(/*image,*/ weatherData);
 				});
@@ -125,26 +123,30 @@ document.addEventListener('click', (e) => {
 
 //handle display of temp by selection
 temps.forEach(temp => {
-    temp.addEventListener('click', async ()=> {
-        const data = await model.getCityWeatherData(location.innerText);
-        view.getTempBySelection(data, temp);
+    temp.addEventListener('click', async () => {
+        try {
+	        const data = await model.getCityWeatherData(location.innerText);
+	        view.getTempBySelection(data, temp);
+        } catch (error) {
+            console.log('error');
+        }
     })
 })
 
-windIcon.addEventListener('click', async ()=>{
+windIcon.addEventListener('click', async () => {
 	const data = await model.getCityWeatherData(location.innerText);
 	view.convertWind(data, data.current.wind_mph);
 })
 
-searchBtn.addEventListener('click', ()=>{
+searchBtn.addEventListener('click', () => {
 	view.toggleSearchBar();
 })
 
-moreInfo.addEventListener('click', ()=>{
+moreInfo.addEventListener('click', () => {
 	view.toggleMoreInfoCard();
 })
 
-goBack.addEventListener('click', ()=>{
+goBack.addEventListener('click', () => {
 	view.goBackToMainCard();
 })
 

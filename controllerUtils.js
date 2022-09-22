@@ -16,6 +16,7 @@ function displayContent(/*image,*/ weatherData) {
     view.displayData(/*image,*/weatherData); 
     isCityFavourite(weatherData.location.name)
     view.initCard();
+    view.goBackToMainCard()
 }
 
 
