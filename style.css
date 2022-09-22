@@ -55,6 +55,7 @@ body{
    }
 
 .info-container {
+    margin-top: 3%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -213,6 +214,10 @@ p {
     text-align: center;
     padding: 0 38%;
     cursor:pointer
+}
+
+#go-back{
+    margin-top: 3%;
 }
 
 #more-info,
