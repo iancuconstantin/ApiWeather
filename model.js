@@ -49,10 +49,12 @@ function addToLocalStorage(city) {
 }
 
 function getFavouriteCities() {
-	return new Promise((resolve, reject) => {
-		const data = JSON.parse(localStorage.favouriteCities);
-		resolve(data);
-	})
+	if (localStorage.favouriteCities) {
+		return new Promise((resolve, reject) => {
+			const data = JSON.parse(localStorage.favouriteCities);
+			resolve(data);
+		})
+	}
 }
 
 function deleteFavouriteCity(city) {
