@@ -28,8 +28,8 @@ input.addEventListener('keypress', async (e)=> {
     } catch (error) {
 		input.value = "";
 		console.log(error);
-		alert("Cit");
 		spinner.setAttribute('hidden', '')
+		view.displayErrorMessage();
     }
   }
 })
@@ -44,8 +44,8 @@ input.addEventListener('input', async (e) => {
 			for (const element of suggestionsList) {
 				element.addEventListener('click', async (e) => {
 					view.inputBarAutocomplete(element.innerText);
-					const [image, weatherData] = await util.fetchInformation(element.innerText, spinner);
-					util.displayContent(image, weatherData);
+					const [/*image,*/weatherData] = await util.fetchInformation(element.innerText, spinner);
+					util.displayContent(/*image,*/ weatherData);
 				});
 			}
 		} else if (e.target.value.length > 2) {
@@ -54,8 +54,8 @@ input.addEventListener('input', async (e) => {
 			for (const element of suggestionsList) {
 				element.addEventListener('click', async (e) => {
 					view.inputBarAutocomplete(element.innerText);
-					const [image, weatherData] = await util.fetchInformation(element.innerText, spinner);
-					util.displayContent(image, weatherData);
+					const [/*image,*/ weatherData] = await util.fetchInformation(element.innerText, spinner);
+					util.displayContent(/*image,*/ weatherData);
 				});
 			}
 	  	} 
@@ -75,8 +75,8 @@ input.addEventListener('click', async (e) => {
 			for (const element of suggestionsList) {
 				element.addEventListener('click', async (e) => {
 					view.inputBarAutocomplete(element.innerText);
-					const [image, weatherData] = await util.fetchInformation(element.innerText, spinner);
-					util.displayContent(image, weatherData);
+					const [/*image,*/ weatherData] = await util.fetchInformation(element.innerText, spinner);
+					util.displayContent(/*image,*/ weatherData);
 				});
 			}
 		}

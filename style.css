@@ -333,6 +333,8 @@ body {
     border: 1px solid cornflowerblue;
     border-radius: 25px;
     padding-left: .5rem;
+    font-weight: 600;
+    font-size: 15px;
   }
 
 .div_hover:hover {
@@ -359,7 +361,7 @@ body {
 }
 #suggestions{
     position: absolute;
-    top: -24.35vh;
+    top: -27.5vh;
     left: 25.5%;
     width: 55%;
     z-index: 10;
