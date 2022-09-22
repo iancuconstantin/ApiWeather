@@ -113,7 +113,7 @@ export function displayIcon(data, isDay){
     }
 }  
 
-export function displaySuggestions(data) {
+export function displaySuggestions(data,favs) {
   const suggestionsList = []
   for (let city of data) {
     if(city.city) {
@@ -123,6 +123,10 @@ export function displaySuggestions(data) {
     suggestionsList.push(newSuggestion);
     newSuggestion.textContent= city;
     newSuggestion.classList.add('div_hover');
+    if(favs){
+      newSuggestion.classList.add('fav');
+    }
+
     suggestionsCard.appendChild(newSuggestion);
   }
   return suggestionsList;

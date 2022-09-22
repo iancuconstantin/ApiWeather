@@ -37,7 +37,7 @@ input.addEventListener('input', async (e) => {
 		if (input.value === '') {
 			suggestionIndex = -1;
 			const data = await model.getFavouriteCities();
-			suggestionsList = view.displaySuggestions(data);
+			suggestionsList = view.displaySuggestions(data,true);
 			for (const element of suggestionsList) {
 				element.addEventListener('click', async (e) => {
 					view.inputBarAutocomplete(element.innerText);
@@ -68,7 +68,7 @@ input.addEventListener('click', async (e) => {
 			suggestionIndex = -1;
 			view.deleteSuggestions();
 			const data = await model.getFavouriteCities();
-			suggestionsList = view.displaySuggestions(data);
+			suggestionsList = view.displaySuggestions(data,true);
 			for (const element of suggestionsList) {
 				element.addEventListener('click', async (e) => {
 					view.inputBarAutocomplete(element.innerText);
