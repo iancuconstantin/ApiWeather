@@ -19,7 +19,7 @@ const humidity = document.getElementById('humid-value')
 const wind = document.getElementById('wind-value')
 
 const error = document.querySelector('.error-msg')
-console.log(error)
+
 /*MORE INFO CARD*/
 const weatherCard2 = document.getElementById('weather-card2')
 const moreInfoLT = document.getElementById('moreinfo-lt')

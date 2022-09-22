@@ -17,7 +17,7 @@ let suggestionsList = [];
 
 input.addEventListener('keypress', async (e)=> {
   suggestionIndex = -1;
-  if (e.key === "Enter"){
+  if (e.key === "Enter" && input.value !== ''){
     try {
 		view.initCard()
 		view.goBackToMainCard()
@@ -51,13 +51,15 @@ input.addEventListener('input', async (e) => {
 			}
 		} else if (e.target.value.length > 2) {
 			const data = await model.searchCities(e.target.value);
-			suggestionsList = view.displaySuggestions(data.data);
-			for (const element of suggestionsList) {
-				element.addEventListener('click', async (e) => {
-					view.inputBarAutocomplete(element.innerText);
-					const [/*image,*/ weatherData] = await util.fetchInformation(element.innerText, spinner);
-					util.displayContent(/*image,*/ weatherData);
-				});
+			if (e.target.value.length > 2) {
+				suggestionsList = view.displaySuggestions(data.data);
+				for (const element of suggestionsList) {
+					element.addEventListener('click', async (e) => {
+						view.inputBarAutocomplete(element.innerText);
+						const [/*image,*/ weatherData] = await util.fetchInformation(element.innerText, spinner);
+						util.displayContent(/*image,*/ weatherData);
+					});
+				}
 			}
 	  	} 
   	} catch (error) {
