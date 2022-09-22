@@ -21,8 +21,8 @@ input.addEventListener('keypress', async (e)=> {
     try {
 		view.initCard()
 		view.goBackToMainCard()
-		const [image, weatherData] = await util.fetchInformation(e.target.value, spinner);
-		util.displayContent(image, weatherData);
+		const [/*image,*/ weatherData] = await util.fetchInformation(e.target.value, spinner);
+		util.displayContent(/*image,*/ weatherData);
 		input.value = "";
 		suggestionsList = [];
     } catch (error) {
@@ -74,7 +74,7 @@ input.addEventListener('click', async (e) => {
 			suggestionIndex = -1;
 			view.deleteSuggestions();
 			const data = await model.getFavouriteCities();
-			suggestionsList = view.displaySuggestions(data,true);
+			suggestionsList = view.displaySuggestions(data, true);
 			for (const element of suggestionsList) {
 				element.addEventListener('click', async (e) => {
 					view.inputBarAutocomplete(element.innerText);

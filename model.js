@@ -1,8 +1,7 @@
 const weatherUrl = "http://api.weatherapi.com/v1/current.json?key="
 const WEATHER_API_KEY = "4ee01554294d4b46b1475647221909"
 
-async function getCityWeatherData(input){
-    
+async function getCityWeatherData(input) {
 	const response = await fetch (`${weatherUrl}${WEATHER_API_KEY}&q=${input}`)
 	const data = await response.json()
 	return data;
@@ -16,11 +15,16 @@ const citiesOptions = {
 	}
 };
 
-async function searchCities(input){
- 
-	const response = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=200000&namePrefix=${input}`,citiesOptions)
-  	const data = await response.json()
-  	return data;
+function searchCities(input){
+	return new Promise(async (resolve, reject) => {
+        const response = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=200000&namePrefix=${input}`,citiesOptions)
+        const data = await response.json();
+        if (data.data && data.data.length > 0) {
+            resolve(data);
+        } else {
+            reject('Exceeded city suggestions limit!')
+        }
+    })
 }
 
 const photosOptions = {
@@ -49,13 +53,18 @@ function addToLocalStorage(city) {
 }
 
 function getFavouriteCities() {
-
-	if (localStorage.favouriteCities) {
-		return new Promise((resolve, reject) => {
+	return new Promise((resolve, reject) => {
+		if (localStorage.favouriteCities) {
 			const data = JSON.parse(localStorage.favouriteCities);
-			resolve(data);
-		})
-	}
+            if (data.length > 0) {	
+			    resolve(data);
+            } else {
+                reject('Favourite list is empty!')
+            }
+		} else {
+			reject('Favourite list is empty!');
+		}
+	})
 }
 
 function deleteFavouriteCity(city) {

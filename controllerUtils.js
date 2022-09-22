@@ -20,8 +20,12 @@ function displayContent(/*image,*/ weatherData) {
 
 
 async function isCityFavourite(searchedCity){
-	const favs = await model.getFavouriteCities()
-	favs.includes(searchedCity.toUpperCase()) ?  view.addToFavouritesButton.classList.add('my-fav-onclick') : true;
+	try {
+	    const favs = await model.getFavouriteCities()
+        favs.includes(searchedCity.toUpperCase()) ?  view.addToFavouritesButton.classList.add('my-fav-onclick') : true;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 export {
