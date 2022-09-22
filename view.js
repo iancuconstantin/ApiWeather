@@ -44,7 +44,7 @@ export function displayData(data) {
 
     /* MAIN CARD */
     const temperatureC = data.current.temp_c
-    tempValue.innerHTML = `${temperatureC}°C`
+    tempValue.innerHTML = `${temperatureC}°`
     feelsLike.innerHTML = data.current.feelslike_c + "°"
 
     const timeValue = "TODAY: " + new Date().getHours() + ":" + new Date().getMinutes()

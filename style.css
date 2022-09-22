@@ -8,14 +8,14 @@
     src: url(/static/Montserrat-ExtraBold.ttf);
 }
 
-*{
+*:not(button){
     margin: 0;
     padding: 0;
     font-family: Montserrat;
     box-sizing: border-box;
 }
 
-body {
+body:not(button) {
     height: 100vh;
     background-color: gray;
 }
@@ -98,6 +98,12 @@ h6{
     margin-bottom: 25px;
 }
 
+
+.maincard-btns {
+    display: flex;
+    align-items: center;
+}
+
 .weather-card-icon {
     width: 23%;
     margin-left: 40%;
@@ -141,14 +147,6 @@ h1 {
     font-weight: bold;
 }   
 
-.div_hover {
-    background-color: #FFFFFF;
-  }
-  
-.div_hover:hover {
-    background-color: #585252;
-  }
-
 #time {
     font-size: 12px;
 }
@@ -172,12 +170,6 @@ h1 {
 #wind-icon:hover {
     cursor: pointer;
 }
-
-.div-selected {
-    background-color: #585252;
-    border-left: 5px solid rgb(0, 4, 255);
-}
-
 
 .icons-container {
     display: flex;
@@ -213,6 +205,7 @@ p {
 
 #more-info,
 #go-back {
+    width: 100%;
     font-size: 11px;
     font-family: MontserratBold;
     color: rgb(4, 4, 98);
@@ -220,6 +213,26 @@ p {
     text-align: center;
     padding: 0 38%;
     cursor:pointer
+}
+
+#more-info,
+#go-back:hover{
+    cursor: pointer;
+}
+#my-fav{
+    margin-left: -12%;
+    width: 5%;
+    background: #bc0b0b00;
+    fill:red;
+}
+
+#my-fav:hover{
+    background:pink;
+    transition-duration: 0.5s;
+}
+
+#my-fav:hover{
+    cursor: pointer;
 }
 
 /* SEARCH BAR */ 

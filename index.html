@@ -15,7 +15,7 @@
     <title>Document</title>
 </head>
 <body>
-        <div class="cloud one"></div>
+    <div class="cloud one"></div>
         <div class="cloud two"></div>
         <div class="cloud three"></div>
         <div class="input-wrapper">
@@ -26,7 +26,7 @@
                </div>
         </div>
         <div id="suggestions"></div>
-        <div id = "weather-card1" class = "card1 hide">
+        <div id = "weather-card1" class = "card1">
             <div hidden id="spinner"></div>
             <h6 id="time"></h4>
             <h4 id="location"></h4>
@@ -36,7 +36,7 @@
                 <div class = "temps-selection">
                     <h1 id = "c-select">C&nbsp;</h1>
                     <h1>|&nbsp;</h1>
-                    <h1 id = "f-select">F</h1>
+                    <h1 id = "f-select" style = "color: gray;">F</h1>
                 </div>
                 <h1 id = "temp-value">&deg;</h1>
             </div>
@@ -56,10 +56,10 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class ="maincard-btns">
                 <a id = "more-info"><strong>MORE INFO</strong></a>
+                <img id="my-fav" src="/icons/heart-regular.svg"/>
             </div>
-            <button type="button">Add to favourites</button>
         </div>
         <div id = "weather-card2" class = "card2 hide">
                 <div class = "info-container">
@@ -113,7 +113,6 @@
                     <a id = "go-back"><strong>GO BACK</strong></a>
                 </div>
         </div>
-
     <script type = "module" src = "./controller.js"></script>
 </body>
 </html>
