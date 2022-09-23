@@ -19,11 +19,11 @@ input.addEventListener('keypress', async (e)=> {
   suggestionIndex = -1;
   if (e.key === "Enter" && input.value !== ''){
     try {
-		const [/*image,*/ weatherData] = await util.fetchInformation(e.target.value, spinner);
+		const weatherData = await util.fetchInformation(e.target.value, spinner);
         if (weatherData.error && weatherData.error.code === 1006) {
             throw 'Location not found';
         }
-		util.displayContent(/*image,*/weatherData);
+		util.displayContent(weatherData);
 		input.value = "";
 		suggestionsList = [];
     } catch (error) {
@@ -45,8 +45,8 @@ input.addEventListener('input', async (e) => {
 			suggestionsList = view.displaySuggestions(data,true);
 			for (const element of suggestionsList) {
 				element.addEventListener('click', async (e) => {
-					const [/*image,*/weatherData] = await util.fetchInformation(element.innerText, spinner);
-					util.displayContent(/*image,*/ weatherData);
+					const weatherData = await util.fetchInformation(element.innerText, spinner);
+					util.displayContent(weatherData);
 				});
 			}
 		} else if (e.target.value.length > 2) {
@@ -55,8 +55,8 @@ input.addEventListener('input', async (e) => {
 				suggestionsList = view.displaySuggestions(data.data);
 				for (const element of suggestionsList) {
 					element.addEventListener('click', async (e) => {
-						const [/*image,*/ weatherData] = await util.fetchInformation(element.innerText, spinner);
-						util.displayContent(/*image,*/ weatherData);
+						const weatherData = await util.fetchInformation(element.innerText, spinner);
+						util.displayContent(weatherData);
 					});
 				}
 			}
@@ -76,8 +76,8 @@ input.addEventListener('click', async (e) => {
 			suggestionsList = view.displaySuggestions(data, true);
 			for (const element of suggestionsList) {
 				element.addEventListener('click', async (e) => {
-					const [/*image,*/ weatherData] = await util.fetchInformation(element.innerText, spinner);
-					util.displayContent(/*image,*/ weatherData);
+					const weatherData = await util.fetchInformation(element.innerText, spinner);
+					util.displayContent(weatherData);
 				});
 			}
 		}

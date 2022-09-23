@@ -37,6 +37,7 @@ const uv = document.getElementById('moreinfo-uv')
 const gustMPH = document.getElementById('moreinfo-gust-mph')
 const gustKPH = document.getElementById('moreinfo-gust-kph')
 
+tempC.style.color = 'white';
 
 export function initCard(){
   error.classList.add('hide')
@@ -52,8 +53,14 @@ export function displayData(data) {
 
     /* MAIN CARD */
     const temperatureC = data.current.temp_c
-    tempValue.innerHTML = `${temperatureC}°`
-    feelsLike.innerHTML = data.current.feelslike_c + "°"
+    const temperatureF = data.current.temp_f
+    if (tempC.style.color === 'white') {
+      tempValue.innerHTML = `${temperatureC}°`;
+      feelsLike.innerHTML = data.current.feelslike_c + "°"
+    } else {
+      tempValue.innerHTML = `${temperatureF}°`;
+      feelsLike.innerHTML = data.current.feelslike_f + "°"
+    }
 
     const timeValue = "TODAY: " + new Date().getHours() + ":" + new Date().getMinutes()
     time.innerHTML = `${timeValue}`
