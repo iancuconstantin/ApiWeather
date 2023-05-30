@@ -52,7 +52,7 @@ body{
     border-radius:10px;
     color: #fcfcfc;
     box-shadow: 10px -2px 20px 2px rgb(0 0 0 / 30%);
-   }
+}
 
 .info-container {
     margin-top: 3%;
@@ -256,22 +256,22 @@ p {
 
 body {
     background: #29313a;
-  }
-  
-  .input-wrapper {
+}
+
+.input-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-  
-  .search-box {
+}
+
+.search-box {
     width: 450px;
     height: 100px;
     position: relative;
-  }
-  
-  .input {
+}
+
+.input {
     margin-top: -55%;
     position: absolute;
     top: 20px;
@@ -287,9 +287,9 @@ body {
     border: 3px solid #2c527e;
     transition: all 0.8s ease;
     box-shadow: 10px -2px 20px 2px rgb(0 0 0 / 30%);
-  }
+}
 
-  .btn {
+.btn {
     margin-top: -55%;
     position: absolute;
     width: 80px;
@@ -304,21 +304,21 @@ body {
     font-size: 20px;
     color: #fff;
     transition: all 0.8s ease;
-  }
-  
-  .input.active {
-    width: 280px;
-    left: 100px;
-  }
+}
 
-  @keyframes spin {
-      from {
+.input.active {
+    width: 280px;
+left: 100px;
+}
+
+@keyframes spin {
+    from {
           transform: rotate(0deg);
         }
-        to {
-            transform: rotate(360deg);
+    to {
+        transform: rotate(360deg);
         }
-    }
+}
 /*----------------*/
 
 /*----SPINNER---*/
@@ -342,7 +342,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
 
 /*---- SUGGESTIONS ----*/
 .div_hover {
@@ -352,12 +352,12 @@ body {
     padding-left: .5rem;
     font-weight: 600;
     font-size: 15px;
-  }
+}
 
 .div_hover:hover {
     background-color: #57f1f975;
     cursor: pointer;
-  }
+}
 
 .fav::before{
     content: "";
@@ -372,7 +372,7 @@ body {
     margin-right: 0.5rem;
 }
 
-  .div-selected {
+.div-selected {
     background-color: #57f1f975;
     border-left: 3px solid cornflowerblue;
 }
