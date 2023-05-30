@@ -3,17 +3,14 @@ import * as view from './view.js';
 
 async function fetchInformation(inputLocation, spinner) {
     spinner.removeAttribute('hidden');
-    //const imageList = await model.searchPhotos(inputLocation);
     const weatherData = await model.getCityWeatherData(inputLocation);
-    //const image = imageList.photos[0];
     spinner.setAttribute('hidden', '')
-    return [/*image,*/ weatherData];
+    return [weatherData];
 }
 
-function displayContent(/*image,*/ weatherData) {
+function displayContent(weatherData) {
     view.deleteSuggestions();
-    //view.changeBackground(image);
-    view.displayData(/*image,*/weatherData); 
+    view.displayData(weatherData); 
     isCityFavourite(weatherData.location.name)
     view.initCard();
 }

@@ -1,10 +1,9 @@
 const weatherUrl = "http://api.weatherapi.com/v1/current.json?key="
-const WEATHER_API_KEY = "4ee01554294d4b46b1475647221909"
+const WEATHER_API_KEY = "9510a5885bd544ee944184333231605"
 
 async function getCityWeatherData(input){
-    
-	const response = await fetch (`${weatherUrl}${WEATHER_API_KEY}&q=${input}`)
-	const data = await response.json()
+	const response = await fetch (`${weatherUrl}${WEATHER_API_KEY}&q=${input}`);
+	const data = await response.json();
 	return data;
 }
 
@@ -17,9 +16,8 @@ const citiesOptions = {
 };
 
 async function searchCities(input){
- 
-	const response = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=200000&namePrefix=${input}`,citiesOptions)
-  	const data = await response.json()
+	const response = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=200000&namePrefix=${input}`,citiesOptions);
+  	const data = await response.json();
   	return data;
 }
 
@@ -31,7 +29,7 @@ const photosOptions = {
 }
 
 async function searchPhotos(input) {
-	const response = await fetch(`https://api.pexels.com/v1/search?query=${input}`, photosOptions)
+	const response = await fetch(`https://api.pexels.com/v1/search?query=${input}`, photosOptions);
 	const data = await response.json();
 	return data;
 }

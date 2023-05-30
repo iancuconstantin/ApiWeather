@@ -27,7 +27,6 @@ input.addEventListener('keypress', async (e)=> {
 		suggestionsList = [];
     } catch (error) {
 		input.value = "";
-		console.log(error);
 		spinner.setAttribute('hidden', '')
 		view.disableCard()
 		view.displayErrorMessage();
@@ -45,8 +44,8 @@ input.addEventListener('input', async (e) => {
 			for (const element of suggestionsList) {
 				element.addEventListener('click', async (e) => {
 					view.inputBarAutocomplete(element.innerText);
-					const [/*image,*/weatherData] = await util.fetchInformation(element.innerText, spinner);
-					util.displayContent(/*image,*/ weatherData);
+					const [weatherData] = await util.fetchInformation(element.innerText, spinner);
+					util.displayContent( weatherData);
 				});
 			}
 		} else if (e.target.value.length > 2) {
@@ -55,13 +54,12 @@ input.addEventListener('input', async (e) => {
 			for (const element of suggestionsList) {
 				element.addEventListener('click', async (e) => {
 					view.inputBarAutocomplete(element.innerText);
-					const [/*image,*/ weatherData] = await util.fetchInformation(element.innerText, spinner);
-					util.displayContent(/*image,*/ weatherData);
+					const [weatherData] = await util.fetchInformation(element.innerText, spinner);
+					util.displayContent(weatherData);
 				});
 			}
 	  	} 
   	} catch (error) {
-	  	console.log(error)
 		spinner.setAttribute('hidden', '')
   }
 })
@@ -76,13 +74,12 @@ input.addEventListener('click', async (e) => {
 			for (const element of suggestionsList) {
 				element.addEventListener('click', async (e) => {
 					view.inputBarAutocomplete(element.innerText);
-					const [/*image,*/ weatherData] = await util.fetchInformation(element.innerText, spinner);
-					util.displayContent(/*image,*/ weatherData);
+					const [weatherData] = await util.fetchInformation(element.innerText, spinner);
+					util.displayContent(weatherData);
 				});
 			}
 		}
 	} catch (error) {
-		console.log(error);
 		spinner.setAttribute('hidden', '')
 	}
 })
@@ -136,6 +133,7 @@ windIcon.addEventListener('click', async ()=>{
 
 searchBtn.addEventListener('click', ()=>{
 	view.toggleSearchBar();
+  input.classList[1] ? input.focus() : input.blur();
 })
 
 moreInfo.addEventListener('click', ()=>{
