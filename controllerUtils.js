@@ -4,8 +4,8 @@ import * as view from "./view.js";
 async function fetchInformation(inputLocation, spinner) {
     spinner.removeAttribute('hidden');
     const weatherData = await model.getCityWeatherData(inputLocation);
-    spinner.setAttribute('hidden', '');
-    return weatherData;
+    spinner.setAttribute('hidden', '')
+    return [weatherData];
 }
 
 function displayContent(weatherData) {

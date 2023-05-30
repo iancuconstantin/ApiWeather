@@ -29,10 +29,10 @@ input.addEventListener("keypress", async (e) => {
       input.value = "";
       suggestionsList = [];
     } catch (error) {
-      input.value = "";
-      spinner.setAttribute("hidden", "");
-      view.disableCard();
-      view.displayErrorMessage();
+		input.value = "";
+		spinner.setAttribute('hidden', '')
+		view.disableCard()
+		view.displayErrorMessage();
     }
   }
 });
@@ -73,28 +73,25 @@ input.addEventListener("input", async (e) => {
   }
 });
 
-input.addEventListener("click", async (e) => {
-  try {
-    if (input.value === "") {
-      suggestionIndex = -1;
-      view.deleteSuggestions();
-      const data = await model.getFavouriteCities();
-      suggestionsList = view.displaySuggestions(data, true);
-      for (const element of suggestionsList) {
-        element.addEventListener("click", async (e) => {
-          view.inputBarAutocomplete(element.innerText);
-          const [weatherData] = await util.fetchInformation(
-            element.innerText,
-            spinner
-          );
-          util.displayContent(weatherData);
-        });
-      }
-    }
-  } catch (error) {
-    spinner.setAttribute("hidden", "");
-  }
-});
+input.addEventListener('click', async (e) => {
+	try {
+		if (input.value === '') {
+			suggestionIndex = -1;
+			view.deleteSuggestions();
+			const data = await model.getFavouriteCities();
+			suggestionsList = view.displaySuggestions(data,true);
+			for (const element of suggestionsList) {
+				element.addEventListener('click', async (e) => {
+					view.inputBarAutocomplete(element.innerText);
+					const [weatherData] = await util.fetchInformation(element.innerText, spinner);
+					util.displayContent(weatherData);
+				});
+			}
+		}
+	} catch (error) {
+		spinner.setAttribute('hidden', '')
+	}
+})
 
 document.addEventListener("keydown", (e) => {
   let length = suggestionsList.length;
@@ -143,9 +140,10 @@ windIcon.addEventListener("click", async () => {
   view.convertWind(data, data.current.wind_mph);
 });
 
-searchBtn.addEventListener("click", () => {
-  view.toggleSearchBar();
-});
+searchBtn.addEventListener('click', ()=>{
+	view.toggleSearchBar();
+  input.classList[1] ? input.focus() : input.blur();
+})
 
 moreInfo.addEventListener("click", () => {
   view.toggleMoreInfoCard();
