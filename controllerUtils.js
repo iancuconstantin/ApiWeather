@@ -1,10 +1,10 @@
-import * as model from './model.js';
-import * as view from './view.js';
+import * as model from "./model.js";
+import * as view from "./view.js";
 
 async function fetchInformation(inputLocation, spinner) {
     spinner.removeAttribute('hidden');
     const weatherData = await model.getCityWeatherData(inputLocation);
-    spinner.setAttribute('hidden', '')
+    spinner.setAttribute('hidden', '');
     return weatherData;
 }
 
@@ -13,9 +13,8 @@ function displayContent(weatherData) {
     view.displayData(weatherData); 
     isCityFavourite(weatherData.location.name)
     view.initCard();
-    view.goBackToMainCard()
+    view.goBackToMainCard();
 }
-
 
 async function isCityFavourite(searchedCity){
 	try {
@@ -26,7 +25,4 @@ async function isCityFavourite(searchedCity){
     }
 }
 
-export {
-    fetchInformation,
-    displayContent,
-}
+export { fetchInformation, displayContent };

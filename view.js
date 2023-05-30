@@ -1,41 +1,40 @@
-export const input = document.getElementById('input')
-export const tempC = document.getElementById('c-select')
-export const tempF = document.getElementById('f-select')
-export const location = document.getElementById('location')
-export const windIcon = document.getElementById('wind-icon')
-export const searchBtn = document.querySelector('.btn')
-export const moreInfo = document.getElementById('more-info')
-export const goBack = document.getElementById('go-back')
+export const input = document.getElementById('input');
+export const tempC = document.getElementById('c-select');
+export const tempF = document.getElementById('f-select');
+export const location = document.getElementById('location');
+export const windIcon = document.getElementById('wind-icon');
+export const searchBtn = document.querySelector('.btn');
+export const moreInfo = document.getElementById('more-info');
+export const goBack = document.getElementById('go-back');
 export const addToFavouritesButton = document.getElementById('my-fav');
 export const spinner = document.getElementById("spinner");
 
-const weatherCard1 = document.getElementById('weather-card1')
-const feelsLike = document.getElementById('feelslike')
-const weatherText = document.getElementById('weather-text')
-const tempValue = document.getElementById('temp-value')
+const weatherCard1 = document.getElementById('weather-card1');
+const feelsLike = document.getElementById('feelslike');
+const weatherText = document.getElementById('weather-text');
+const tempValue = document.getElementById('temp-value');
 const suggestionsCard = document.querySelector('#suggestions');
-const time = document.getElementById('time')
-const humidity = document.getElementById('humid-value')
-const wind = document.getElementById('wind-value')
-
-const error = document.querySelector('.error-msg')
+const time = document.getElementById('time');
+const humidity = document.getElementById('humid-value');
+const wind = document.getElementById('wind-value');
+const error = document.querySelector('.error-msg');
 
 /*MORE INFO CARD*/
-const weatherCard2 = document.getElementById('weather-card2')
-const moreInfoLT = document.getElementById('moreinfo-lt')
-const latlong = document.getElementById('moreinfo-latlong')
-const condition = document.getElementById('moreinfo-condition')
-const windMPH = document.getElementById('moreinfo-wind-mph')
-const windKPH = document.getElementById('moreinfo-wind-kph')
-const pressure = document.getElementById('moreinfo-pressure')
-const windDir = document.getElementById('moreinfo-wind-dir')
-const card2humidity = document.getElementById('moreinfo-humidity')
-const card2feelslikeC = document.getElementById('moreinfo-feelslike-c')
-const card2feelslikeF = document.getElementById('moreinfo-feelslike-f')
-const visibility = document.getElementById('moreinfo-vis')
-const uv = document.getElementById('moreinfo-uv')
-const gustMPH = document.getElementById('moreinfo-gust-mph')
-const gustKPH = document.getElementById('moreinfo-gust-kph')
+const weatherCard2 = document.getElementById('weather-card2');
+const moreInfoLT = document.getElementById('moreinfo-lt');
+const latlong = document.getElementById('moreinfo-latlong');
+const condition = document.getElementById('moreinfo-condition');
+const windMPH = document.getElementById('moreinfo-wind-mph');
+const windKPH = document.getElementById('moreinfo-wind-kph');
+const pressure = document.getElementById('moreinfo-pressure');
+const windDir = document.getElementById('moreinfo-wind-dir');
+const card2humidity = document.getElementById('moreinfo-humidity');
+const card2feelslikeC = document.getElementById('moreinfo-feelslike-c');
+const card2feelslikeF = document.getElementById('moreinfo-feelslike-f');
+const visibility = document.getElementById('moreinfo-vis');
+const uv = document.getElementById('moreinfo-uv');
+const gustMPH = document.getElementById('moreinfo-gust-mph');
+const gustKPH = document.getElementById('moreinfo-gust-kph');
 
 tempC.style.color = 'white';
 
@@ -50,7 +49,6 @@ export function disableCard(){
 }
 
 export function displayData(data) {
-
     /* MAIN CARD */
     const temperatureC = data.current.temp_c
     const temperatureF = data.current.temp_f
@@ -62,41 +60,41 @@ export function displayData(data) {
       feelsLike.innerHTML = data.current.feelslike_f + "°"
     }
 
-    const timeValue = "TODAY: " + new Date().getHours() + ":" + new Date().getMinutes()
+    const timeValue = "TODAY: " + new Date().getHours() + ":" + new Date().getMinutes();
     time.innerHTML = `${timeValue}`
 
-    const locationValue = data.location.name.toUpperCase()
+    const locationValue = data.location.name.toUpperCase();
     location.innerHTML = locationValue
     
-    const weatherTextValue = data.current.condition.text.toUpperCase()
+    const weatherTextValue = data.current.condition.text.toUpperCase();
     weatherText.innerHTML = `${weatherTextValue}`
     
-    const humidityValue = data.current.humidity
+    const humidityValue = data.current.humidity;
     humidity.innerHTML = humidityValue + " %"
     
-    const windValue = data.current.wind_mph
+    const windValue = data.current.wind_mph;
     wind.innerHTML = windValue + " mph"
     
-    displayIcon(data, data.current.is_day)
+    displayIcon(data, data.current.is_day);
 
     /* MORE INFO CARD */
-    const localtimeValue = data.location.localtime.split(" ")[1]
+    const localtimeValue = data.location.localtime.split(" ")[1];
     moreInfoLT.innerHTML = localtimeValue 
 
-    const latlongValue = `${data.location.lat} / ${data.location.lon}` 
+    const latlongValue = `${data.location.lat} / ${data.location.lon}` ;
     latlong.innerHTML = latlongValue
 
-    const conditionText = data.current.condition.text
+    const conditionText = data.current.condition.text;
     condition.innerHTML = conditionText.toUpperCase()
 
     windMPH.innerHTML = windValue
-    const windKPHvalue = data.current.wind_kph
+    const windKPHvalue = data.current.wind_kph;
     windKPH.innerHTML = windKPHvalue
 
-    const pressureValue = data.current.pressure_mb
+    const pressureValue = data.current.pressure_mb;
     pressure.innerHTML = pressureValue
 
-    const windDirValue = data.current.wind_dir
+    const windDirValue = data.current.wind_dir;
     windDir.innerHTML = `${windDirValue} (${data.current.wind_degree})`
 
     card2humidity.innerHTML = humidityValue
@@ -104,22 +102,22 @@ export function displayData(data) {
     card2feelslikeC.innerHTML = temperatureC + "°";
     card2feelslikeF.innerHTML = data.current.feelslike_c + "°";
 
-    const visibilityValue = data.current.vis_km
+    const visibilityValue = data.current.vis_km;
     visibility.innerHTML = visibilityValue
 
-    const uvValue = data.current.uv
+    const uvValue = data.current.uv;
     uv.innerHTML = uvValue
 
-    const gustMPHValue = data.current.gust_mph
+    const gustMPHValue = data.current.gust_mph;
     gustMPH.innerHTML = gustMPHValue
 
-    const gustKPHValue = data.current.gust_kph
+    const gustKPHValue = data.current.gust_kph;
     gustKPH.innerHTML = gustKPHValue
 }
   
 export function displayIcon(data, isDay){
     const imgFileRegex = /\d{3}\.png/
-    const url = data.current.condition.icon.match(imgFileRegex)[0]
+    const url = data.current.condition.icon.match(imgFileRegex)[0];
     if (isDay === 0){
       document.getElementById('tempLogo').src = `./night/${url}`
     } else {
@@ -128,7 +126,7 @@ export function displayIcon(data, isDay){
 }  
 
 export function displaySuggestions(data,favs) {
-  const suggestionsList = []
+  const suggestionsList = [];
   for (let city of data) {
     if(city.city) {
       city = city.city;
@@ -182,23 +180,24 @@ export function convertWind(data, windmph){
 }
 
 export function toggleSearchBar(){
-  input.classList.toggle('active')
+  input.classList.toggle('active');
+  input.classList[1]=="active" ? input.focus() : input.blur();
 }
 
 export function toggleMoreInfoCard(){
-  weatherCard1.classList.add('hide')
-  weatherCard2.classList.remove('hide')
+  weatherCard1.classList.add('hide');
+  weatherCard2.classList.remove('hide');
 }
 
 export function goBackToMainCard(){
-  weatherCard1.classList.remove('hide')
-  weatherCard2.classList.add('hide')
+  weatherCard1.classList.remove('hide');
+  weatherCard2.classList.add('hide');
 }
 
 export function changeHeartColor(){
-  addToFavouritesButton.classList.contains('my-fav-onclick') ? addToFavouritesButton.classList.remove('my-fav-onclick') : addToFavouritesButton.classList.add('my-fav-onclick')
+  addToFavouritesButton.classList.contains('my-fav-onclick') ? addToFavouritesButton.classList.remove('my-fav-onclick') : addToFavouritesButton.classList.add('my-fav-onclick');
 }
 
 export function displayErrorMessage(){
-  error.classList.remove('hide')
+  error.classList.remove('hide');
 }

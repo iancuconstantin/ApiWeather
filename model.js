@@ -1,9 +1,9 @@
 const weatherUrl = "http://api.weatherapi.com/v1/current.json?key="
-const WEATHER_API_KEY = "4ee01554294d4b46b1475647221909"
+const WEATHER_API_KEY = "9510a5885bd544ee944184333231605"
 
-async function getCityWeatherData(input) {
-	const response = await fetch (`${weatherUrl}${WEATHER_API_KEY}&q=${input}`)
-	const data = await response.json()
+async function getCityWeatherData(input){
+	const response = await fetch (`${weatherUrl}${WEATHER_API_KEY}&q=${input}`);
+	const data = await response.json();
 	return data;
 }
 
@@ -15,16 +15,10 @@ const citiesOptions = {
 	}
 };
 
-function searchCities(input){
-	return new Promise(async (resolve, reject) => {
-        const response = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=200000&namePrefix=${input}`,citiesOptions)
-        const data = await response.json();
-        if (data.data && data.data.length > 0) {
-            resolve(data);
-        } else {
-            reject('Exceeded city suggestions limit!')
-        }
-    })
+async function searchCities(input){
+	const response = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=200000&namePrefix=${input}`,citiesOptions);
+  	const data = await response.json();
+  	return data;
 }
 
 const photosOptions = {
@@ -35,7 +29,7 @@ const photosOptions = {
 }
 
 async function searchPhotos(input) {
-	const response = await fetch(`https://api.pexels.com/v1/search?query=${input}`, photosOptions)
+	const response = await fetch(`https://api.pexels.com/v1/search?query=${input}`, photosOptions);
 	const data = await response.json();
 	return data;
 }
@@ -53,18 +47,12 @@ function addToLocalStorage(city) {
 }
 
 function getFavouriteCities() {
-	return new Promise((resolve, reject) => {
-		if (localStorage.favouriteCities) {
+	if (localStorage.favouriteCities) {
+		return new Promise((resolve, reject) => {
 			const data = JSON.parse(localStorage.favouriteCities);
-            if (data.length > 0) {	
-			    resolve(data);
-            } else {
-                reject('Favourite list is empty!')
-            }
-		} else {
-			reject('Favourite list is empty!');
-		}
-	})
+			resolve(data);
+		})
+	}
 }
 
 function deleteFavouriteCity(city) {
